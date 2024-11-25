@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce-Website</title>
+    <link rel="stylesheet" href="shop.css">
+    <script src="https://kit.fontawesome.com/7e4bb5f098.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="main-container">
+      <!-- responsive navbar code start -->
+       <div class="responsive-navbar" id="responsivenavbarmain">
+        <div class="croos-icon">
+          <i onclick="navOf()" class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="show-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-globe"></i>
+        </div>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="home.html#Section3">About</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Feedback</a></li>
+       </ul>
+       </div>
+        <!-- Headre section Start -->
+        <div class="header">
+            <div class="logo">
+                <img src="../Images/logo.png" alt="">
+            </div>
+            <div class="navbar">
+                <ul>
+                   <li><a href="home.html">Home</a></li>
+                   <li><a href="home.html#Section3">About</a></li>
+                   <li><a href="shop.html">Shop</a></li>
+                   <li><a href="#">Contact</a></li>
+                   <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="iconss">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="nav-icon">
+                <i onclick="navOn()" class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <!-- Header section End -->
+        <!-- Hero section Start -->
+         <div class="hero-section-main">
+            <div class="hero-left-main">
+                <h1 class="bs">We bring the Stored <br> to your door</h1>
+                <h1 class="ss">We bring the Stored  to your door</h1>
+                <p>Get Organic produce and sustainably sourced <br> groceries delivery at up to 4% of grocery</p>
+                <button>Shop Now:</button>
+            </div>
+            <div class="hero-right-main">
+                <img src="../Images/shop-hero-sectionimg.png" alt="">
+                <p>Get Organic produce and sustainably sourced <br> groceries delivery at up to 4% of grocery</p>
+                <button>Shop Now:</button>
+
+            </div>
+
+         </div>
+        <!-- Hero section Start -->
+         <!-- Section1 Start -->
+          <div class="section1">
+             <div class="s2fistbox">
+                 <h2>Categories</h2>
+                 <h1>Shop by Categories</h1>
+             </div>
+             <div class="s2select-box-main">
+                <div class="s2selectbox-card1" id="fruits" onclick="ProducrtsSea(this)">
+                    <img src="../Images/s2selectimage1.png" alt="">
+                    <h2>Fruits</h2>
+                    <p>20 items</p>
+                </div>
+                <div class="s2selectbox-card1"  id="Vegetable"  onclick="ProducrtsSea(this)">
+                    <img src="../Images/s2selectimage2.jpeg" alt="">
+                    <h2>Vegetables</h2>
+                    <p>20 items</p>
+                </div> 
+                <div class="s2selectbox-card1"  id="Drinks" onclick="ProducrtsSea(this)">
+                    <img src="../Images/s2selectimage3.jpeg" alt="">
+                    <h2>Drinks</h2>
+                    <p>20 items</p>
+                </div>
+                 <div class="s2selectbox-card1"  id="Freshnuts" onclick="ProducrtsSea(this)">
+                    <img src="../Images/s2selectimage4.jpeg" alt="">
+                    <h2>Dry Fruits</h2>
+                    <p>20 items</p>
+                </div>
+                 <div class="s2selectbox-card1"  id="Noodles"  onclick="ProducrtsSea(this)">
+                    <img style="width: 90px;" src="../Images/s2selectimage5.jpeg" alt="">
+                    <h2>Noodles</h2>
+                    <p>20 items</p>
+                </div> 
+                <div class="s2selectbox-card1"  id="Snaks"  onclick="ProducrtsSea(this)">
+                    <img style="width: 120px;" src="../Images/s2selectimage6.jpeg" alt="">
+                    <h2>Snakes</h2>
+                    <p>20 items</p>
+                </div>
+              </div>
+             <!-- </div> -->
+          </div>
+         <!-- Section1 End -->
+         <!-- Section2 Start -->
+         <div class="first-line">
+           <h1>All Items</h1>
+           <h3>View All</h3>
+          </div> 
+          <div class="section2Main-Two-in-one">
+          <div class="section2Fruits-main" id="Fruitsmaincon">     <!-- Fruits main container start -->
+              <div class="s2fruits-card">
+                  <img src="../Images/s2fruitscard1.png" id="fruits1" alt="">
+                  <h3>Apple</h3>
+                  <p>Rs. 500  <s>650</s></p>
+                  <p class="harfdescription" id="harf1">An apple contains essential nutrients like vitamins, minerals, fiber, and antioxidants, which are beneficial for overall health. <b onclick="viewMore(this)">View More</b></p>
+                  <p class="fulldescription" id="full1">An apple contains essential nutrients like vitamins, minerals, fiber, and antioxidants, which are beneficial for overall health. It is rich in vitamin C, which boosts the immune system, and fiber, which aids digestion and helps lower cholesterol levels. <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">20% OFF</div>
+                  <div onclick="productSelect(this)" class="s2fruitsicon">
+                    <i class="fa-solid fa-plus"></i>
+                  </div>
+              </div>
+              <div class="s2fruits-card">
+               <img src="../Images/s2fruitscard2.png" alt="">
+                <h3>Litchi</h3>
+                <p>Rs. 1500  <s>1800</s></p>
+                <p class="harfdescription" id="harf2"> These tropical fruits are rich in vitamin C, which boosts immunity and  glowing skin.risk of inflammation and diseases.<b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full2"> These tropical fruits are rich in vitamin C, which boosts immunity and promotes glowing skin. Lychees are full of antioxidants that help fight free radicals, reducing the risk of inflammation and diseases. <b onclick="viewLess(this)">View Less</b></p>
+                <div class="off">30% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+                <img src="../Images/s2fruitscard3.png" alt="">
+                <h3>Water melon</h3>
+                <p>Rs. 800  <s>950</s></p>
+                <p class="harfdescription" id="harf3"> It contains over 90% water, excellent choice for hydration. Watermelon is vitamin C, which helps boost the immune system <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full3"> It contains over 90% water, making it an excellent choice for hydration. Watermelon is also packed with essential vitamins like vitamin C, which helps boost the immune system  <b onclick="viewLess(this)">View Less</b></p>
+                <div class="off">10% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+                <img src="../Images/s2fruitscard4.jpeg" alt="">
+                <h3>Orange</h3>
+                <p>Rs. 300  <s>500</s></p>
+                <p class="harfdescription" id="harf4"> Oranges are an incredible source of vitamin C, which boosts the immune system, helps the body fight infections, and promotes healthy skin. <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full4"> Oranges are an incredible source of vitamin C, which boosts the immune system, helps the body fight infections, and promotes healthy skin. They are also rich in antioxidants, which help reduce inflammation <b onclick="viewLess(this)">View Less</b></p>
+                <div class="off">25% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+                <img src="../Images/s2fruitscard5.png" alt="">
+                <h3>Dragan fruit</h3>
+                <p>Rs. 2500  <s>3500</s></p>
+                <p class="harfdescription" id="harf5"> dragon fruit is rich in antioxidants like vitamin C and betalains, which help fight free radicals, reduce inflammation, and promote healthy skin.  <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full5"> dragon fruit is rich in antioxidants like vitamin C and betalains, which help fight free radicals, reduce inflammation, and promote healthy skin. It’s also an excellent source of fiber, which aids digestion  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">10% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+                <img src="../Images/s2fruitscard6.jpeg" alt="">
+                <h3>Pine Apple</h3>
+                <p>Rs. 850  <s>1200</s></p>
+                <p class="harfdescription" id="harf6"> pineapples help boost the immune system, promote healthy skin, and support collagen production. They contain bromelain, an enzyme known for its anti-inflammatory properties, <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full6"> ineapples help boost the immune system, promote healthy skin, and support collagen production. They contain bromelain, an enzyme known for its anti-inflammatory properties, which can aid in digestion and reduce swelling. <b onclick="viewLess(this)">View Less</b></p>
+                <div class="off">35% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+                <img src="../Images/s2fruitscard7.jpeg" alt="">
+                <h3>Pomegranate</h3>
+                <p>Rs. 800  <s>950</s></p>
+                <p class="harfdescription" id="harf7"> particularly punicalagins, pomegranates help protect the body from oxidative stress and inflammation.of vitamin C, <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full7"> particularly punicalagins, pomegranates help protect the body from oxidative stress and inflammation. They are an excellent source of vitamin C, which boosts the immune system and supports healthy skin <b onclick="viewLess(this)">View Less</b></p>
+                <div class="off">15% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+                <img src="../Images/s2fruitscard8.jpeg" alt="">
+                <h3>Mango</h3>
+                <p>Rs. 900  <s>1500</s></p>
+                <p class="harfdescription" id="harf8"> mangoes are an excellent source of vitamin C, which boosts the immune system, promotes healthy skin, and aids in collagen production. They are rich in antioxidants like <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full8">  mangoes are an excellent source of vitamin C, which boosts the immune system, promotes healthy skin, and aids in collagen production. They are rich in antioxidants like beta-carotene and polyphenols,  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">40% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+                <img src="../Images/s2fruitscard9.jpeg" alt="">
+                <h3>Banana</h3>
+                <p>Rs. 300  <s>600</s></p>
+                <p class="harfdescription" id="harf9"> Bananas are an excellent source of potassium, which helps maintain healthy blood pressure and supports proper heart function. They are rich in vitamin B6, <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full9"> Bananas are an excellent source of potassium, which helps maintain healthy blood pressure and supports proper heart function. They are rich in vitamin B6, which aids in brain health and boosts the immune system.  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">50% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+                <img src="../Images/s2fruitscard10.jpeg" alt="">
+                <h3>Graphes</h3>
+                <p>Rs. 600  <s>950</s></p>
+                <p class="harfdescription" id="harf10"> grapes help protect the body from oxidative stress, support heart health, and may reduce inflammation. They are a great source of vitamins such as vitamin C, which boosts the. <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full10"> grapes help protect the body from oxidative stress, support heart health, and may reduce inflammation. They are a great source of vitamins such as vitamin C, which boosts the immune system and promotes healthy skin. Grapes are also high in fiber <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">12% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+          </div>
+          <div class="section2Fruits-main" id="Vegetablesmaincon">     <!-- vegetable main container start -->
+            <div class="s2fruits-card">
+                <img  style="width: 190px" src="../Images/s2vegetablecard1.jpg" alt="">
+                <h3>fresh-spinach</h3>
+                <p>Rs. 200  <s>350</s></p>
+                <p class="harfdescription" id="harf11"> Rich in iron and folate, spinach helps improve energy levels and supports red blood cell production. The high fiber content in spinach aids digestion and helps <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full11">  Rich in iron and folate, spinach helps improve energy levels and supports red blood cell production. The high fiber content in spinach aids digestion and helps regulate blood sugar levels. Additionally, spinach is full of antioxidants, <b onclick="viewLess(this)">View Less</b></p>
+                <div class="off">15% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+             <img  style="width: 190px" src="../Images/s2vegetablecard2.jpg" alt="">
+              <h3>Pumpkin</h3>
+              <p>Rs. 300  <s>450</s></p>
+              <p class="harfdescription" id="harf12"> Pumpkin is also rich in vitamin C, promoting skin health and helping to fight off infections. The high fiber content in pumpkin aids digestion, supports gut health, and helps regulate blood <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full12"> Pumpkin is also rich in vitamin C, promoting skin health and helping to fight off infections. The high fiber content in pumpkin aids digestion, supports gut health, and helps regulate blood sugar levels. Additionally, pumpkin contains  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">30% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img  style="width: 190px" src="../Images/s2vegetablecard3.jpg" alt="">
+              <h3>fresh-cauliflower</h3>
+              <p>Rs. 250  <s>650</s></p>
+              <p class="harfdescription" id="harf13"> It is rich in vitamins and minerals, including vitamin C, which boosts the immune system and promotes healthy skin, as well as vitamin K, which supports bone health.  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full13"> It is rich in vitamins and minerals, including vitamin C, which boosts the immune system and promotes healthy skin, as well as vitamin K, which supports bone health. Cauliflower is also an excellent source of fiber, which aids digestion <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">50% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img src="../Images/s2vegetablecard4.jpg"  alt="">
+              <h3>Lemon</h3>
+              <p>Rs. 150  <s>200</s></p>
+              <p class="harfdescription" id="harf14">  lemons help strengthen the immune system, promote healthy skin, and fight off infections. helping to cleanse the body and support digestion. <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full14"> lemons help strengthen the immune system,  infections. They are also known for their detoxifying properties, helping to cleanse the body and support digestion. The high citric acid content in lemons can aid in maintaining a <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">10% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img src="../Images/s2vegetablecard5.jpg" alt="">
+              <h3>Potato</h3>
+              <p>Rs. 200  <s>400</s></p>
+              <p class="harfdescription" id="harf15">  potatoes provide a good source of energy, making them an excellent choice for fueling the body. They are also high in vitamin C, which supports <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full15"> potatoes provide a good source of energy, making them an excellent choice for fueling the body. They are also high in vitamin C, which supports the immune system and promotes healthy skin. <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">32% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img src="../Images/s2vegetablecard6.jpg" alt="">
+              <h3>Tomato</h3>
+              <p>Rs. 500  <s>650</s></p>
+              <p class="harfdescription" id="harf16"> tomatoes help strengthen the immune system and promote healthy skin. They are an excellent source of antioxidants, particularly lycopene, which has been shown to support heart <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full16"> tomatoes help strengthen the immune system and promote healthy skin. They are an excellent source of antioxidants, particularly lycopene, which has been shown to support heart health and may help reduce the risk of certain cancers. <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">17% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img  style="width: 190px" src="../Images/s2vegetablecard7.jpg" alt="">
+              <h3>whole-beet</h3>
+              <p>Rs. 600  <s>750</s></p>
+              <p class="harfdescription" id="harf17"> which helps promote healthy digestion and supports gut health. including betalains, which help fight inflammation and protect  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full17"> which helps promote healthy digestion and supports gut health. They are also rich in antioxidants, including betalains, which help fight inflammation and protect the body from oxidative stress. <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">15% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img  style="width: 190px" src="../Images/s2vegetablecard8.jpg" alt="">
+              <h3>eggplant</h3>
+              <p>Rs. 300  <s>600</s></p>
+              <p class="harfdescription" id="harf18">  eggplants support healthy digestion and help regulate blood sugar levels, particularly nasunin, which helps protect the body from oxidative <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full18"> eggplants support healthy digestion and help regulate blood sugar levels. They are an excellent source of antioxidants, particularly nasunin, which helps protect the body from oxidative stress and supports brain health.  <b onclick="viewLess(this)">View Less</b></p>
+              <div class="off">50% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img src="../Images/s2vegetablecard9.jpg" alt="">
+              <h3>cilantro</h3>
+              <p>Rs. 150  <s>450</s></p>
+              <p class="harfdescription" id="harf19"> cilantro helps boost the immune system, supports healthy skin, and promotes strong bones. It is also packed with antioxidants that help protect <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full19"> cilantro helps boost the immune system, supports healthy skin, and promotes strong bones. It is also packed with antioxidants that help protect the body from oxidative stress and reduce inflammation.  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">65% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img style="width: 190px;" src="../Images/s2vegetablecard10.jpg" alt="">
+              <h3>fresh-broccoli</h3>
+              <p>Rs. 500  <s>680</s></p>
+              <p class="harfdescription" id="harf20"> Broccoli is also rich in antioxidants, such as sulforaphane, which has anti-inflammatory properties and may help protect against chronic diseases like cancer.  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full20"> roccoli is also rich in antioxidants, such as sulforaphane, which has anti-inflammatory properties and may help protect against chronic diseases like cancer. Additionally, its high fiber content aids digestion  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">5% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          </div>
+          <div class="section2Fruits-main" id="Drinksmaincon">     <!-- Drinks main container start -->
+            <div class="s2fruits-card">
+                <img style="width: 160px;" src="../Images/s2drinkscard1.jpg" alt="">
+                <h3>Pepsi</h3>
+                <p>Rs. 300  <s>350</s></p>
+                <p class="harfdescription" id="harf51">  Pepsi in a can is a refreshing and classic soft drink that delivers the perfect balance of sweetness and carbonation. <b onclick="viewMore(this)">View More</b></p>
+                <p class="fulldescription" id="full51"> Pepsi in a can is a refreshing and classic soft drink that delivers the perfect balance of sweetness and carbonation. With its bold, crisp taste, Pepsi is the ideal beverage to pair with meals, snacks, or to simply enjoy on its own.  <b onclick="viewLess(this)">View Less</b></p>
+                <div class="off">5% OFF</div>
+                <div onclick="productSelect(this)" class="s2fruitsicon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="s2fruits-card">
+             <img style="width: 180px;" src="../Images/s2drinkscard2.jpg" alt="">
+              <h3>7up</h3>
+              <p>Rs. 250  <s>500</s></p>
+              <p class="harfdescription" id="harf52"> 7Up in a can is a refreshing and crisp soft drink that offers a clean, zesty lemon-lime flavor. With its smooth carbonation and light taste, <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full52"> 7Up in a can is a refreshing and crisp soft drink that offers a clean, zesty lemon-lime flavor. With its smooth carbonation and light taste, 7Up is perfect for quenching your thirst, whether you're enjoying it with a meal, as a snack, <b onclick="viewLess(this)">View Less</b></p>
+              <div class="off">50% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img style="width: 190px;" src="../Images/s2drinkscard3.jpg" alt="">
+              <h3>Fanta</h3>
+              <p>Rs. 350  <s>450</s></p>
+              <p class="harfdescription" id="harf53"> Fanta can, a refreshing and flavorful soft drink that never fails to lift your spirits. Its vibrant citrus taste, <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full53"> Fanta can, a refreshing and flavorful soft drink that never fails to lift your spirits. Its vibrant citrus taste, combined with the perfect balance of sweetness and fizz, makes it an ideal choice for quenching thirst,  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">10% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img style="width: 160px;" src="../Images/s2drinkscard4.jpg" alt="">
+              <h3>Red Bull</h3>
+              <p>Rs. 550  <s>750</s></p>
+              <p class="harfdescription" id="harf54"> Red Bull helps improve focus, alertness, and performance, making it the perfect drink for those busy days, late nights, <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full54"> Red Bull helps improve focus, alertness, and performance, making it the perfect drink for those busy days, late nights, or moments when extra energy is needed. Packed with caffeine, taurine, and B-vitamins, Red Bull  <b onclick="viewLess(this)">View Less</b></p>
+              <div class="off">30% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img src="../Images/s2drinkscard5.jpg" alt="">
+              <h3>Gatorate</h3>
+              <p>Rs. 750  <s>1000</s></p>
+              <p class="harfdescription" id="harf55"> Gatorade helps restore hydration and energy levels after exercise, sports, or even a long day in the heat. Its wide range of refreshing  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full55"> Gatorade helps restore hydration and energy levels after exercise, sports, or even a long day in the heat. Its wide range of refreshing flavors makes it a tasty and effective way to keep your body energized and refreshed. Whether you're working out,  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">17% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img style="width: 190px;" src="../Images/s2drinkscard6.jpg" alt="">
+              <h3>Boast up</h3>
+              <p>Rs. 650  <s>800</s></p>
+              <p class="harfdescription" id="harf56"> Boost provides an excellent source of energy and nourishment, perfect for those with busy lifestyles  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full56"> Boost provides an excellent source of energy and nourishment, perfect for those with busy lifestyles or anyone looking to support their health and wellness. Whether you're in need of a quick breakfast, a post-workout recovery, <b onclick="viewLess(this)">View Less</b></p>
+              <div class="off">10% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img src="../Images/s2drinkscard7.jpg" alt="">
+              <h3>CocaCola</h3>
+              <p>Rs. 500  <s>650</s></p>
+              <p class="harfdescription" id="harf57"> Coca-Cola can is a classic favorite that never goes out of style. Known for its signature taste, this refreshing soft drink delivers  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full57"> Coca-Cola can is a classic favorite that never goes out of style. Known for its signature taste, this refreshing soft drink delivers the perfect combination of sweetness and fizz that people love. Whether you're enjoying a meal, hanging out with friends,  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">7% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img style="width: 180px;" src="../Images/s2drinkscard8.jpg" alt="">
+              <h3>Monster</h3>
+              <p>Rs. 900  <s>1300</s></p>
+              <p class="harfdescription" id="harf58"> Monster can is a top choice for customers looking for an intense energy boost. Packed with caffeine, taurine, and a unique blend of vitamins, <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full58"> Monster can is a top choice for customers looking for an intense energy boost. Packed with caffeine, taurine, and a unique blend of vitamins, Monster is designed to help enhance focus, alertness, and physical performance.  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">40% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img src="../Images/s2drinkscard9.jpg" alt="">
+              <h3>Sprite</h3>
+              <p>Rs. 350  <s>500</s></p>
+              <p class="harfdescription" id="harf59">  Sprite can is a popular choice for those who crave a crisp, refreshing drink. Known for its clean, lemon-lime flavor and sparkling fizz,  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full59">  Sprite can is a popular choice for those who crave a crisp, refreshing drink. Known for its clean, lemon-lime flavor and sparkling fizz, Sprite offers a thirst-quenching experience that’s perfect for any time of day. Whether you’re enjoying a meal,  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">12% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+              <img src="../Images/s2drinkscard10.jpg" alt="">
+              <h3>Prime</h3>
+              <p>Rs. 1300  <s>2000</s></p>
+              <p class="harfdescription" id="harf60"> Prime is quickly becoming a favorite among customers looking for a delicious, hydrating beverage packed with essential nutrients.  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full60"> Prime is quickly becoming a favorite among customers looking for a delicious, hydrating beverage packed with essential nutrients. Known for its refreshing taste and variety of vibrant flavors, Prime offers hydration with added benefits like electrolytes,  <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">70% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          </div>
+          <div class="section2Fruits-main" id="Dryfruitsmaincon">     <!-- Dry fruits main container start -->
+          <div class="s2fruits-card">
+              <img src="../Images/s2dryfruitscard1.jpg" alt="">
+              <h3>Al  monds</h3>
+              <p>Rs. 900  <s>1200</s></p>
+              <p class="harfdescription" id="harf21"> Almonds are also high in fiber, which aids digestion and helps with weight management by keeping you feeling full for longer. <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full21"> Almonds are also high in fiber, which aids digestion and helps with weight management by keeping you feeling full for longer. Additionally, they contain essential minerals like magnesium <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">15% OFF</div>
+              <div onclick="productSelect(this)" class="s2fruitsicon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+          </div>
+          <div class="s2fruits-card">
+           <img src="../Images/s2dryfruitscard2.webp" alt="">
+            <h3>Apricot</h3>
+            <p>Rs. 4000  <s>5050</s></p>
+            <p class="harfdescription" id="harf22"> They are also a good source of fiber, aiding digestion and promoting gut health. Additionally, apricots contain <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full22"> They are also a good source of fiber, aiding digestion and promoting gut health. Additionally, apricots contain essential minerals like potassium, which supports heart health and helps regulate <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">20% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="s2fruits-card">
+            <img src="../Images/s2dryfruitscard3.webp" alt="">
+            <h3>Pistachios</h3>
+            <p>Rs. 1600  <s>1950</s></p>
+            <p class="harfdescription" id="harf23"> pistachios help promote heart health by reducing bad cholesterol levels. They are a great source of protein and fiber, <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full23">  pistachios help promote heart health by reducing bad cholesterol levels. They are a great source of protein and fiber, which aid in digestion and help keep you feeling full longer, making them an excellent snack for weight <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">16% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="s2fruits-card">
+            <img src="../Images/s2dryfruitscard4.webp" alt="">
+            <h3>Cashews Nuts</h3>
+            <p>Rs. 3600  <s>4000</s></p>
+            <p class="harfdescription" id="harf24"> cashews help reduce bad cholesterol levels and promote overall heart health. They are an excellent source of protein,  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full24"> cashews help reduce bad cholesterol levels and promote overall heart health. They are an excellent source of protein, which supports muscle growth and repair, and also provide essential vitamins and minerals like vitamin E, <b onclick="viewLess(this)">View Less</b></p>
+                   <div class="off">10% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="s2fruits-card">
+            <img src="../Images/s2dryfruitscard5.webp" alt="">
+            <h3>Dried figs</h3>
+            <p>Rs. 2500  <s>3050</s></p>
+            <p class="harfdescription" id="harf25"> which aids digestion, promotes gut health, and helps regulate blood sugar levels. Dried figs are also rich in essential <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full25"> which aids digestion, promotes gut health, and helps regulate blood sugar levels. Dried figs are also rich in essential minerals like potassium, calcium, and magnesium, which support heart health, <b onclick="viewLess(this)">View Less</b></p>
+            <div class="off">25% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="s2fruits-card">
+            <img src="../Images/s2dryfruitscard6.webp" alt="">
+            <h3>Dates</h3>
+            <p>Rs. 900  <s>1250</s></p>
+            <p class="harfdescription" id="harf26">  dates support healthy digestion and help regulate blood sugar levels. They are an excellent source of essential minerals such as potassium,  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full26"> dates support healthy digestion and help regulate blood sugar levels. They are an excellent source of essential minerals such as potassium, magnesium, and copper, which promote heart health, support muscle function, <b onclick="viewLess(this)">View Less</b></p>
+            <div class="off">16% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="s2fruits-card">
+            <img src="../Images/s2dryfruitscard7.webp" alt="">
+            <h3>Chilgoza</h3>
+            <p>Rs. 5000  <s>5500</s></p>
+            <p class="harfdescription" id="harf27">  chilgoza helps support heart health by reducing bad cholesterol levels. They are a great source of protein,  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full27">  chilgoza helps support heart health by reducing bad cholesterol levels. They are a great source of protein, which is essential for muscle repair and growth,  <b onclick="viewLess(this)">View Less</b></p>
+            <div class="off">5% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="s2fruits-card">
+            <img src="../Images/s2dryfruitscard8.webp" alt="">
+            <h3>Chakwal Rewali</h3>
+            <p>Rs. 1200  <s>1750</s></p>
+            <p class="harfdescription" id="harf28">  It is rich in healthy fats from sesame seeds, which are a good source of essential minerals like calcium,  <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full28">  It is rich in healthy fats from sesame seeds, which are a good source of essential minerals like calcium, iron, and magnesium, supporting bone health and overall vitality. Rewari is often <b onclick="viewLess(this)">View Less</b></p>
+            <div class="off">35% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="s2fruits-card">
+            <img src="../Images/s2dryfruitscard9.webp" alt="">
+            <h3>Organic Honey</h3>
+             <p>Rs. 1900  <s>2500</s></p>
+             <p class="harfdescription" id="harf29"> honey helps protect the body from oxidative stress and supports immune function. It is also known for its antimicrobial properties, <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full29"> honey helps protect the body from oxidative stress and supports immune function. It is also known for its antimicrobial properties, which can help soothe sore throats and promote healing.  <b onclick="viewLess(this)">View Less</b></p>
+            <div class="off">12% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="s2fruits-card">
+            <img src="../Images/s2dryfruitscard10.webp" alt="">
+            <h3>Kishmish Meva</h3>
+            <p>Rs. 900  <s>1050</s></p>
+            <p class="harfdescription" id="harf30"> kishmish provides a quick source of energy, making them an excellent snack for boosting stamina. They are rich in antioxidants, <b onclick="viewMore(this)">View More</b></p>
+              <p class="fulldescription" id="full30"> kishmish provides a quick source of energy, making them an excellent snack for boosting stamina. They are rich in antioxidants, such as flavonoids and phenols, which help protect the body from oxidative damage and reduce <b onclick="viewLess(this)">View Less</b></p>
+            <div class="off">7% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+          </div>
+          <div class="section2Fruits-main" id="Noodlesmaincon">     <!-- Noodles main container start -->
+        <div class="s2fruits-card">
+            <img src="../Images/s2noodlescard1.jpg" alt="">
+            <h3>Knor Chiken Noodles</h3>
+            <p>Rs. 250  <s>550</s></p>
+            <p class="harfdescription" id="harf31"> These noodles are packed with flavor, featuring a rich chicken taste that appeals to both children and adults.  <b onclick="viewMore(this)">View More</b></p>
+            <p class="fulldescription" id="full31">  These noodles are packed with flavor, featuring a rich chicken taste that appeals to both children and adults. While convenient, they also provide a source of carbohydrates for energy,  <b onclick="viewLess(this)">View Less</b></p>
+            <div class="off">50% OFF</div>
+            <div onclick="productSelect(this)" class="s2fruitsicon">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="s2fruits-card">
+         <img style="height: 170px; width: 170px;" src="../Images/s2noodlescard2.jpeg" alt="">
+          <h3>knor chatpata Noddles</h3>
+          <p>Rs. 300  <s>350</s></p>
+          <p class="harfdescription" id="harf32">  that Knorr Chatpata Noodles are a flavorful and exciting option for anyone craving a spicy and tangy snack or meal.   <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full32">  These noodles are packed with flavor, featuring a rich chicken taste that appeals to both children and adults. While convenient, they also provide a source of carbohydrates for energy,   <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">40% OFF</div>
+          <div onclick="productSelect(this)" class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+      <div class="s2fruits-card">
+          <img src="../Images/s2noodlescard3.jpg" alt="">
+          <h3>Samyang buldak hot Noodles</h3>
+           <p>Rs. 450  <s>650</s></p>
+           <p class="harfdescription" id="harf33"> Samyan Budak Hot noodles are a spicy and flavorful choice for anyone who loves a bit of heat in their meals.  <b onclick="viewMore(this)">View More</b></p>
+           <p class="fulldescription" id="full33"> Samyan Budak Hot noodles are a spicy and flavorful choice for anyone who loves a bit of heat in their meals. Known for their bold and intense flavor, these noodles offer a perfect blend of spices  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">10% OFF</div>
+          <div onclick="productSelect(this)" class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+      <div class="s2fruits-card">
+          <img src="../Images/s2noodlescard4.jpg" alt="">
+          <h3>Noodles Masala</h3>
+          <p>Rs. 550  <s>700</s></p>
+          <p class="harfdescription" id="harf34">  Noodles Masala is a flavorful and aromatic meal that offers a perfect blend of spices for a delicious and satisfying experience.  <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full34">  Noodles Masala is a flavorful and aromatic meal that offers a perfect blend of spices for a delicious and satisfying experience. The masala seasoning mix provides a rich, savory taste with a hint of warmth,  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">20% OFF</div>
+          <div class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+      <div class="s2fruits-card">
+          <img src="../Images/s2noodlescard5.jpg" alt="">
+          <h3>Shan Shop Hot Noodles</h3>
+          <p>Rs. 600  <s>850</s></p>
+          <p class="harfdescription" id="harf35"> Shan Shop Hot Noodles are a flavorful and spicy option for anyone who enjoys bold, aromatic flavors. Known for their rich,  <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full35"> Shan Shop Hot Noodles are a flavorful and spicy option for anyone who enjoys bold, aromatic flavors. Known for their rich, zesty seasoning, these noodles provide a perfect balance of heat and taste, <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">7% OFF</div>
+          <div onclick="productSelect(this)" class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+      <div class="s2fruits-card">
+          <img src="../Images/s2noodlescard6.jpg" alt="">
+          <h3>300 Shop Koren Noodles</h3>
+          <p>Rs. 800  <s>1050</s></p>
+          <p class="harfdescription" id="harf36"> Shop Koran Noodles are a delicious and satisfying option for anyone who loves quick, flavorful meals. Known for their savory <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full36"> Shop Koran Noodles are a delicious and satisfying option for anyone who loves quick, flavorful meals. Known for their savory seasoning and easy preparation, these noodles offer a perfect balance of taste  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">25% OFF</div>
+          <div onclick="productSelect(this)" class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+      <div class="s2fruits-card">
+          <img src="../Images/s2noodlescard7.jpg" alt="">
+          <h3>Samyang buldak Hot chiken Noodles</h3>
+          <p>Rs. 900  <s>1250</s></p>
+          <p class="harfdescription" id="harf37"> Samyang Budak Hot Chicken noodles are a spicy and exciting option for anyone who loves intense heat and bold flavors.  <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full37">  Samyang Budak Hot Chicken noodles are a spicy and exciting option for anyone who loves intense heat and bold flavors. Known for their fiery hot chicken flavor, these noodles offer a perfect blend of spices and seasonings  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">30% OFF</div>
+          <div onclick="productSelect(this)" class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+      <div class="s2fruits-card">
+          <img src="../Images/s2noodlescard8.jpg" alt="">
+          <h3>Knor fuzeon hot Noodles</h3>
+          <p>Rs. 300  <s>599</s></p>
+          <p class="harfdescription" id="harf38"> that Knorr Fuzon Hot Noodles are an exciting and flavorful choice for anyone who loves bold, spicy dishes. These noodles are packed with a perfect balance  <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full38"> that Knorr Fuzon Hot Noodles are an exciting and flavorful choice for anyone who loves bold, spicy dishes. These noodles are packed with a perfect balance of heat and savory spices that give them a rich, zesty flavor with every bite.  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">17% OFF</div>
+          <div onclick="productSelect(this)" class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+      <div class="s2fruits-card">
+          <img src="../Images/s2noodlescard9.jpg" alt="">
+          <h3>Samyang yemen spicy Noodles</h3>
+          <p>Rs. 530  <s>690</s></p>
+          <p class="harfdescription" id="harf39"> Samyang Yemen Spicy noodles are a bold and fiery choice for anyone who loves a good challenge when it comes to spice <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full39">  Samyang Yemen Spicy noodles are a bold and fiery choice for anyone who loves a good challenge when it comes to spice. Known for their rich, intense heat and robust flavor, these noodles feature a perfect blend of spices that deliver an authentic,  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">22% OFF</div>
+          <div onclick="productSelect(this)" class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+      <div class="s2fruits-card">
+          <img src="../Images/s2noodlescard10.jpg" alt="">
+          <h3>Indomie chiken Chataka Noodles</h3>
+          <p>Rs. 90  <s>150</s></p>
+          <p class="harfdescription" id="harf40"> Indomie Chicken Chataka noodles are a delicious and savory option for those who enjoy a flavorful, spicy meal. These noodles are infused  <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full40">  Indomie Chicken Chataka noodles are a delicious and savory option for those who enjoy a flavorful, spicy meal. These noodles are infused with a unique blend of spices that give them a bold, tangy chicken flavor with a hint of heat.  <b onclick="viewLess(this)">View Less</b></p>
+            <div class="off">12% OFF</div>
+          <div onclick="productSelect(this)" class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+          </div>
+          <div class="section2Fruits-main" id="Snakesmaincon">     <!-- Snakes main container start -->
+             <div class="s2fruits-card">
+          <img style="width: 170px;" src="../Images/s2snakescard1.jpg" alt="">
+          <h3>Lays Salted</h3>
+          <p>Rs. 30  <s>70</s></p>
+          <p class="harfdescription" id="harf41"> Lay’s Salted chips are a classic, delicious snack perfect for those who enjoy a simple yet satisfying flavor. Made with high-quality potatoes <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full41">  Lay’s Salted chips are a classic, delicious snack perfect for those who enjoy a simple yet satisfying flavor. Made with high-quality potatoes and seasoned with just the right amount of salt, these chips offer a crunchy, savory experience with every bite. <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">10% OFF</div>
+          <div onclick="productSelect(this)" class="s2fruitsicon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+      </div>
+      <div class="s2fruits-card">
+       <img src="../Images/s2snakescard2.jpg" alt="">
+        <h3>Kurkure</h3>
+        <p>Rs. 50  <s>75</s></p>
+        <p class="harfdescription" id="harf42"> Green Kurkure is a bold and flavorful snack that delivers a perfect combination of tangy and spicy flavors. <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full42">  Green Kurkure is a bold and flavorful snack that delivers a perfect combination of tangy and spicy flavors. Made with crispy corn and a unique blend of seasonings, it offers a crunchy, satisfying bite with every mouthful.  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">12% OFF</div>
+        <div onclick="productSelect(this)" class="s2fruitsicon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="s2fruits-card">
+        <img src="../Images/s2snakescard3.jpg" alt="">
+        <h3>Chetos red flaming</h3>
+        <p>Rs. 60  <s>89</s></p>
+        <p class="harfdescription" id="harf43"> Cheetos Red Flaming are a bold, spicy snack that delivers an intense kick of heat with every bite. These crispy, cheesy snacks <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full43"> eetos Red Flaming are a bold, spicy snack that delivers an intense kick of heat with every bite. These crispy, cheesy snacks are coated with a fiery, tangy seasoning that creates a perfect balance of spiciness and flavor. <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">5% OFF</div>
+        <div onclick="productSelect(this)" class="s2fruitsicon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="s2fruits-card">
+        <img src="../Images/s2snakescard4.jpg" alt="">
+        <h3>Cruncho Nacho</h3>
+        <p>Rs. 180  <s>250</s></p>
+        <p class="harfdescription" id="harf44"> Crunchy Nacho chips are a delicious and savory snack, packed with the bold flavor of nacho cheese. These chips offer a satisfying  <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full44"> Crunchy Nacho chips are a delicious and savory snack, packed with the bold flavor of nacho cheese. These chips offer a satisfying crunch with every bite, combined with the rich, cheesy taste that nacho lovers crave.  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">22% OFF</div>
+        <div onclick="productSelect(this)" class="s2fruitsicon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="s2fruits-card">
+        <img src="../Images/s2snakescard5.jpg" alt="">
+        <h3>Darda grilled chips</h3>
+        <p>Rs. 450  <s>650</s></p>
+        <p class="harfdescription" id="harf45">  Darda Grilled Chips are a unique and flavorful snack, offering a savory grilled taste with a satisfying crunch.  <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full45"> Darda Grilled Chips are a unique and flavorful snack, offering a savory grilled taste with a satisfying crunch. These chips are seasoned to perfection, providing a smoky, charred flavor that mimics the taste of grilled food. <b onclick="viewLess(this)">View Less</b></p>
+        <div class="off">20% OFF</div>
+        <div onclick="productSelect(this)" class="s2fruitsicon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="s2fruits-card">
+        <img src="../Images/s2snakescard6.jpg" alt="">
+        <h3>Lays wavy bbq</h3>
+        <p>Rs. 100  <s>150</s></p>
+        <p class="harfdescription" id="harf46"> Lay's Wavy chips offer a unique, thick and crispy texture that makes them perfect for dipping or enjoying on their own. <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full46"> Lay's Wavy chips offer a unique, thick and crispy texture that makes them perfect for dipping or enjoying on their own. With their wavy shape, these chips hold up well to a variety of dips, such as ranch, salsa, or guacamole, <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">11% OFF</div>
+        <div onclick="productSelect(this)" class="s2fruitsicon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="s2fruits-card">
+        <img src="../Images/s2snakescard7.jpg" alt="">
+        <h3>Cruncho Nacho Sweet</h3>
+        <p>Rs. 600  <s>750</s></p>
+        <p class="harfdescription" id="harf47"> Crunchy Nacho Sweet chips are a delightful snack that combines the perfect balance of sweet and savory flavors. <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full47">  Crunchy Nacho Sweet chips are a delightful snack that combines the perfect balance of sweet and savory flavors. These chips offer a satisfying crunch with a deliciously sweet nacho seasoning that adds a unique twist  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">17% OFF</div>
+        <div onclick="productSelect(this)" class="s2fruitsicon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="s2fruits-card">
+        <img style=" width: 170px;" src="../Images/s2snakescard8.jpg" alt="">
+        <h3>Lays Cheese flavour</h3>
+        <p>Rs. 50  <s>75</s></p>
+        <p class="harfdescription" id="harf48"> Lay's Cheese Flavored chips offer a rich, creamy, and irresistible cheesy taste that makes them a favorite snack for cheese lovers.  <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full48"> Lay's Cheese Flavored chips offer a rich, creamy, and irresistible cheesy taste that makes them a favorite snack for cheese lovers. The perfect balance of savory, cheesy seasoning is spread generously on each crisp,  <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">8% OFF</div>
+        <div onclick="productSelect(this)" class="s2fruitsicon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="s2fruits-card">
+        <img style="width: 140px; left: 15%;" src="../Images/s2snakescard9.jpg" alt="">
+        <h3>Crunches hot Chips</h3>
+        <p>Rs. 150  <s>240</s></p>
+        <p class="harfdescription" id="harf49"> Chicken Hot Chips offer a spicy and flavorful snack that combines the delicious taste of chicken with a bold, fiery kick. <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full49">  Chicken Hot Chips offer a spicy and flavorful snack that combines the delicious taste of chicken with a bold, fiery kick. The chips are seasoned with a unique blend of spices that gives them a savory, tangy, and spicy flavor, <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">16% OFF</div>
+        <div onclick="productSelect(this)" class="s2fruitsicon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="s2fruits-card">
+        <img src="../Images/s2snakescard10.jpg" alt="">
+        <h3>Lays spicy</h3>
+        <p>Rs. 50  <s>99</s></p>
+        <p class="harfdescription" id="harf50">  Lay's Spicy chips are a bold and flavorful snack that offers the perfect balance of heat and taste. Coated with a zesty blend of spices, <b onclick="viewMore(this)">View More</b></p>
+          <p class="fulldescription" id="full50"> Lay's Spicy chips are a bold and flavorful snack that offers the perfect balance of heat and taste. Coated with a zesty blend of spices, these chips provide a satisfying crunch along with a fiery kick that spice lovers will enjoy. <b onclick="viewLess(this)">View Less</b></p>
+          <div class="off">7% OFF</div>
+        <div onclick="productSelect(this)" class="s2fruitsicon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+          </div>
+       <!-- Section2 End -->
+       <!-- Add to Card start -->
+          <div class="add-tocard-con" id="adtoCard-container">
+            <div class="close-icon">
+              <i onclick="adtocardclose(this)" class="fa-solid fa-xmark"></i>    <!-- onclick="adtocardclose(this)" -->
+            </div>
+             <div class="atcimg-show-user-con" id="img-container"></div>
+             <div class="atc-text1" id="atctext1"></div>
+             <div class="stars">⭐⭐⭐</div>
+             <div class="atcprice" id="atcPrice"></div>
+            <div class="plus-minus" id="plus-minus"></div>
+            <div id="quantityproductsnum"></div>
+            <div id="delevery-time">
+                  <div class="clock">
+                    <i class="fa-regular fa-clock"></i>
+                  </div>
+                  <div class="text">
+                   <h3>Delivery Time</h3>
+                   <p>2-3 Days</p>
+                  </div>
+            </div>
+            <div id="products-details"></div>
+             <div id="addto-card-button">
+                <button onclick="Addtocardclicked(this)">Add to cart</button>
+             </div>
+          </div>
+    </div>       <!-- section2Main-Two-in-one End Here -->
+       <!-- Add to Card End -->
+          <!-- footer start -->
+          <div class="footer">
+            <div class="first-row-icons">
+                <div class="ficon">
+                 <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div class="ficon">
+                 <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="ficon">
+                 <i class="fa-brands fa-twitter"></i>
+                </div>
+                <div class="ficon">
+                 <i class="fa-brands fa-google"></i>
+                </div>
+                <div class="ficon">
+                 <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+            <div class="f-second-row">
+             <ul>
+                 <li><a href="home.html">Home</a></li>
+                 <li><a href="home.html#Section3">About</a></li>
+                 <li><a href="shop.html">Shop</a></li>
+                 <li><a href="#">Contact</a></li>
+                 <li><a href="#">Feedback</a></li>
+              </ul>
+            </div>
+            <div class="fthird-row">
+                 <p>Copyright © 2024 Designed buy <a href="https://github.com/moizawan07?tab=repositories" target="_blank" style="color: white;">Moiz Ahmed</a></p>
+            </div>
+         </div>
+      <!-- footer End -->
+
+    </div>
+    <script src="../app.js"></script>
+</body>
+</html>
