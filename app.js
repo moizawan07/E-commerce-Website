@@ -27,7 +27,7 @@ function signUp(){
             dataArr.push(userObj)
             var stringyformat = JSON.stringify(dataArr) 
             window.localStorage.setItem('dataarr', stringyformat)
-            window.location.href = '/login page/login.html'
+            window.location.href = '../login page/login.html'
           }
         
     }
@@ -36,7 +36,7 @@ function signUp(){
         dataArr.push(userObj)
         var stringyformat = JSON.stringify(dataArr) 
         window.localStorage.setItem('dataarr', stringyformat)
-         window.location.href = '/login page/login.html'
+         window.location.href = '../login page/login.html'
     }
     
 }
@@ -55,11 +55,11 @@ function logIn(){
     // console.log(getdatals);
     if(!getdatals){
         alert('go and signUp first')
-        window.location.href = '/index.html'
+        window.location.href = '../index.html'
     }
    if(getdatals[getdatals.length -1].Email == email2 && getdatals[getdatals.length -1].password == password2){
      alert('welcome to the home page')
-     window.location.href = '/Home pages/home.html'
+     window.location.href = '../Home pages/home.html'
      }
      else{
         alert('insert a correct data')
