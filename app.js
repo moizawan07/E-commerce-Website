@@ -27,7 +27,7 @@ function signUp(){
             dataArr.push(userObj)
             var stringyformat = JSON.stringify(dataArr) 
             window.localStorage.setItem('dataarr', stringyformat)
-            window.location.href = '../login page/login.html'
+            window.location.href = 'login page/login.html'
           }
         
     }
@@ -36,7 +36,7 @@ function signUp(){
         dataArr.push(userObj)
         var stringyformat = JSON.stringify(dataArr) 
         window.localStorage.setItem('dataarr', stringyformat)
-         window.location.href = '../login page/login.html'
+         window.location.href = 'login page/login.html'
     }
     
 }
@@ -50,21 +50,37 @@ else{
 function logIn(){
     var email2 = document.getElementById('email2').value;
     var password2 = document.getElementById('password2').value;
-
     var getdatals = JSON.parse(window.localStorage.getItem('dataarr'))
-    // console.log(getdatals);
-    if(!getdatals){
+    console.log(getdatals);
+
+    var desh = 'No'       
+    if(email2 == 'Moizadmin@gmail.com' && password2 == 'moiz45'){          // Admin Condition
+        desh = 'Yes'
+         window.location.href = '../Dashboard/dashboard.html'
+      }
+    if(!getdatals){                  //  Check User  Signup or Not
         alert('go and signUp first')
         window.location.href = '../index.html'
     }
-   if(getdatals[getdatals.length -1].Email == email2 && getdatals[getdatals.length -1].password == password2){
-     alert('welcome to the home page')
-     window.location.href = '../Home pages/home.html'
+    var decion = false;
+    for(var i = 0; i<getdatals.length; i++){              
+      if(getdatals[i].Email == email2 && getdatals[i].password == password2){           // Check User Enter a Coorect data
+        alert('welcome to the home page')
+        window.localStorage.setItem("currentUserObj", JSON.stringify(getdatals[i])); 
+        window.location.href = '../Home pages/home.html'
+       decion = true
+       break;
      }
      else{
-        alert('insert a correct data')
-     }
-    
+       decion = false  
+      }
+      }
+      if(desh == 'Yes'){
+        decion = true;
+       } 
+  if(decion == false){       // User Incoorecrt Data Condition
+    alert('Insert a Correct data')
+  }
 }
 
 function ProducrtsSea(e){
@@ -137,215 +153,301 @@ function navOf(){
 // Product Select Function
 
 function productSelect(e){
-  var imgcheck = document.getElementById('adtoCard-container');
-  var check = imgcheck.getElementsByTagName('img');
+  document.getElementById('adtoCard-container').style.display = 'block';
+  var getProductCardId = e.parentNode.getAttribute('id');    // Main Card Get id
+  var productImgGet = e.parentNode.childNodes[1];
+  var productNameGet = e.parentNode.childNodes[3];
+  var productPriceGet = e.parentNode.childNodes[5].childNodes[0].nodeValue;
+  var productOnlyPrice = productPriceGet.slice(4);
+  var productDetailsHalf = e.parentNode.childNodes[7];
+  var productDetailsFull = e.parentNode.childNodes[9];
+  console.log(productDetailsFull);
+  
 
-  document.getElementById('adtoCard-container').style.display = 'block'
-  if(check.length == 0){
-  var cardImg = e.parentNode.childNodes[1];
-  // console.log(cardImg);
+  var ProductCardIdSet = document.querySelector('.product-card')   // Main Card Set id
+      ProductCardIdSet.setAttribute('id',getProductCardId);
+  var ProductImgSet = document.getElementById('product-img');
+      ProductImgSet.src = productImgGet.src;    
+  var ProductNameSet = document.getElementById('ProductName');
+      ProductNameSet.innerHTML = productNameGet.innerHTML;
+  var ProductPriceSet = document.getElementById('ProductPrice');
+      ProductPriceSet.innerHTML = parseInt(productOnlyPrice);
+  var ProductDetailsHalf = document.getElementById('Productdetailshalf');
+      ProductDetailsHalf.innerHTML = productDetailsHalf.innerHTML;
+      var ProductDetailsFull = document.getElementById('Productdetailsfull');
+      ProductDetailsFull.innerHTML = productDetailsFull.innerHTML                   
+  console.log(ProductPriceSet);
   
-  var cardName = e.parentNode.childNodes[3].innerHTML;
-  var cardPrice = e.parentNode.childNodes[5].childNodes[0].nodeValue;
-  var cardpricenum = cardPrice.slice(4);
-  var cardpricefinalnum = parseInt(cardpricenum)
-  // console.log(cardPrice);
+
+// var imgcheck = document.getElementById('adtoCard-container');
+// var check = imgcheck.getElementsByTagName('img');
+//   if(check.length == 0){
+//   var cardImg = e.parentNode.childNodes[1];
+//   // console.log(cardImg);
   
- var carddescrivm = e.parentNode.childNodes[7] || e.parentNode.childNodes[7] || e.parentNode.childNodes[6] ||  e.parentNode.childNodes[5]
-    // var carddescrivm = e.parentNode.childNodes[9]
- console.log(carddescrivm);
+//   var cardName = e.parentNode.childNodes[3].innerHTML;
+//   var cardPrice = e.parentNode.childNodes[5].childNodes[0].nodeValue;
+//   var cardpricenum = cardPrice.slice(4);
+//   var cardpricefinalnum = parseInt(cardpricenum)
+//   // console.log(cardPrice);
+  
+//  var carddescrivm = e.parentNode.childNodes[7] || e.parentNode.childNodes[7] || e.parentNode.childNodes[6] ||  e.parentNode.childNodes[5]
+//     // var carddescrivm = e.parentNode.childNodes[9]
+//  console.log(carddescrivm);
  
-   carddescrivm.style.display = 'block'
-  var cardfulldesvl = e.parentNode.childNodes[9] ||e.parentNode.childNodes[7] || e.parentNode.childNodes[7] || e.parentNode.childNodes[6] ||  e.parentNode.childNodes[5]
-  console.log(carddescrivm);
+//    carddescrivm.style.display = 'block'
+//   var cardfulldesvl = e.parentNode.childNodes[9] ||e.parentNode.childNodes[7] || e.parentNode.childNodes[7] || e.parentNode.childNodes[6] ||  e.parentNode.childNodes[5]
+//   console.log(carddescrivm);
   
 
-  var imgConGet = document.getElementById('img-container');
-     var imgElementCre = document.createElement('img')
-     imgElementCre.src = cardImg.src
-     imgElementCre.setAttribute('id', cardpricefinalnum)
-    imgConGet.appendChild(imgElementCre)
+//   var imgConGet = document.getElementById('img-container');
+//      var imgElementCre = document.createElement('img')
+//      imgElementCre.src = cardImg.src
+//      imgElementCre.setAttribute('id', cardpricefinalnum)
+//     imgConGet.appendChild(imgElementCre)
   
-  var atctext1 = document.getElementById('atctext1');
-  var h2 = document.createElement('h2')
-   var h2text = document.createTextNode(cardName)   
-   h2.appendChild(h2text)
-   h2.setAttribute('id','proname')
-   atctext1.appendChild(h2) 
+//   var atctext1 = document.getElementById('atctext1');
+//   var h2 = document.createElement('h2')
+//    var h2text = document.createTextNode(cardName)   
+//    h2.appendChild(h2text)
+//    h2.setAttribute('id','proname')
+//    atctext1.appendChild(h2) 
 
-   var atcPrice = document.getElementById('atcPrice');
-   var p1 = document.createElement('p')
-    var p1text = document.createTextNode(cardPrice)   
-    p1.appendChild(p1text)
-    p1.setAttribute('id','proprice')
-    atcPrice.appendChild(p1) 
+//    var atcPrice = document.getElementById('atcPrice');
+//    var p1 = document.createElement('p')
+//     var p1text = document.createTextNode(cardPrice)   
+//     p1.appendChild(p1text)
+//     p1.setAttribute('id','proprice')
+//     atcPrice.appendChild(p1) 
    
-    var atcplus_minus_box = document.getElementById('plus-minus');  //Plus btn
-    var plusbtn = document.createElement('button');
-    var plusbtntext = document.createTextNode('+');
-    plusbtn.appendChild(plusbtntext);
-    plusbtn.setAttribute('onClick', `Plus(this,${cardpricefinalnum})`)
-    atcplus_minus_box.appendChild(plusbtn)
+//     var atcplus_minus_box = document.getElementById('plus-minus');  //Plus btn
+//     var plusbtn = document.createElement('button');
+//     var plusbtntext = document.createTextNode('+');
+//     plusbtn.appendChild(plusbtntext);
+//     plusbtn.setAttribute('onClick', `Plus(this,${cardpricefinalnum})`)
+//     atcplus_minus_box.appendChild(plusbtn)
 
-    var minusbtn = document.createElement('button');  // Minus Btn
-    var minusbtntext = document.createTextNode('-');
-    minusbtn.appendChild(minusbtntext);
-    minusbtn.setAttribute('onClick', `Minus(this,${cardpricefinalnum})`)
-    atcplus_minus_box.appendChild(minusbtn)
+//     var minusbtn = document.createElement('button');  // Minus Btn
+//     var minusbtntext = document.createTextNode('-');
+//     minusbtn.appendChild(minusbtntext);
+//     minusbtn.setAttribute('onClick', `Minus(this,${cardpricefinalnum})`)
+//     atcplus_minus_box.appendChild(minusbtn)
 
-    var qnmain = document.getElementById('quantityproductsnum')
-      var qn = document.createElement('p');
-      var qntext = document.createTextNode('1');
-      qn.appendChild(qntext)                                       // Qunatity Numbers 
-      qnmain.appendChild(qn)
+//     var qnmain = document.getElementById('quantityproductsnum')
+//       var qn = document.createElement('p');
+//       var qntext = document.createTextNode('1');
+//       qn.appendChild(qntext)                                       // Qunatity Numbers 
+//       qnmain.appendChild(qn)
      
-    var productdetails = document.getElementById('products-details');
-    var ph3 = document.createElement('h3');
-    var ph3text = document.createTextNode('Product Details:');
-    ph3.appendChild(ph3text);
-    productdetails.appendChild(ph3);
-    productdetails.appendChild(carddescrivm)
-    productdetails.appendChild(cardfulldesvl)
-}
-else{
-  var cardImg = e.parentNode.childNodes[1];
-  var imgget =  document.getElementById('img-container');
-  var img = imgget.getElementsByTagName('img')[0];
-  img.src = cardImg.src
+//     var productdetails = document.getElementById('products-details');
+//     var ph3 = document.createElement('h3');
+//     var ph3text = document.createTextNode('Product Details:');
+//     ph3.appendChild(ph3text);
+//     productdetails.appendChild(ph3);
+//     productdetails.appendChild(carddescrivm)
+//     productdetails.appendChild(cardfulldesvl)
+// }
+// else{
+//   var cardImg = e.parentNode.childNodes[1];
+//   var imgget =  document.getElementById('img-container');
+//   var img = imgget.getElementsByTagName('img')[0];
+//   img.src = cardImg.src
 
-  var productname = document.getElementById('proname');
-  productname.innerText = e.parentNode.childNodes[3].innerHTML;
+//   var productname = document.getElementById('proname');
+//   productname.innerText = e.parentNode.childNodes[3].innerHTML;
 
-  var productprice = document.getElementById('proprice');
-  productprice.innerText = e.parentNode.childNodes[5].childNodes[0].nodeValue;
+//   var productprice = document.getElementById('proprice');
+//   productprice.innerText = e.parentNode.childNodes[5].childNodes[0].nodeValue;
   
   
-}
+// }
 }
 function viewMore(e){
-  var textpar = e.parentNode;    // remove para 
-  var idgettextpera = textpar.getAttribute('id');
-
-  var showfullpara = e.parentNode.nextSibling;    // Show para 
-    var showidget = showfullpara.getAttribute('id')
+  // console.log(e.parentNode);
+  document.getElementById('Productdetailsfull').style.display = 'block'
+  document.getElementById('Productdetailshalf').style.display = 'none'
   
-  var halfparads = document.getElementById(idgettextpera).style.display = 'none'
-  var fullparads = document.getElementById(showidget).style.display = 'block'
+  // var textpar = e.parentNode;    // remove para 
+  // var idgettextpera = textpar.getAttribute('id');
+
+  // var showfullpara = e.parentNode.nextSibling;    // Show para 
+  //   var showidget = showfullpara.getAttribute('id')
+  
+  // var halfparads = document.getElementById(idgettextpera).style.display = 'none'
+  // var fullparads = document.getElementById(showidget).style.display = 'block'
 };
 
 function viewLess(e){
-  var removetextpare = e.parentNode;    // Remove para get
-  var removeidtextpare = removetextpare.getAttribute('id');
+  document.getElementById('Productdetailsfull').style.display = 'none'
+  document.getElementById('Productdetailshalf').style.display = 'block'
+  // var removetextpare = e.parentNode;    // Remove para get
+  // var removeidtextpare = removetextpare.getAttribute('id');
   
-  var showpara = e.parentNode.parentNode.childNodes[1];
-  var showparaid = showpara.getAttribute('id')
+  // var showpara = e.parentNode.parentNode.childNodes[1];
+  // var showparaid = showpara.getAttribute('id')
 
-  document.getElementById(removeidtextpare).style.display = 'none'
-  document.getElementById(showparaid).style.display = 'block'
+  // document.getElementById(removeidtextpare).style.display = 'none'
+  // document.getElementById(showparaid).style.display = 'block'
 
 }
 
 
-function Plus(e,f){
-  // console.log(f); 
-  var numberget = document.getElementById('quantityproductsnum').childNodes[0].innerText;
+function Plus(e){
+  // console.log("e" + e);
+  // console.log(e.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1]);  
+  
+  var numberget = document.getElementById('proqunanumber').innerText;
    ++numberget
+  //  console.log(numberget);
+   
 
    if(numberget < 11){   // Not increment  increased after 10 number
-     document.getElementById('quantityproductsnum').childNodes[0].innerText = numberget// Print increment number
+     document.getElementById('proqunanumber').innerText = numberget// Print increment number
 
-     var newcardpric =  e.parentNode.parentNode.childNodes[9].innerText;
-    //  console.log(newcardpric);
-     var newfinalcardprice = newcardpric.slice(4)
-      //  console.log(newfinalcardprice);
+    var prodPriceget = e.parentNode.previousSibling.previousSibling.childNodes[1];
+     var multiply =   prodPriceget.innerText * numberget++
+     document.getElementById('updateProductPrice').innerText = multiply;     // Print update Price
+     document.getElementById('updateProductPrice').setAttribute('class','top');
+    //  prodPriceget.setAttribute('class','opacity')                              // Old Price remove
+    document.getElementById('ProductPrice').style.display = 'none'
+    // console.log(prodPriceget);
+    
+
+  // document.getElementById('ProductPrice').innerText = multplyProdPrice  
+
+     
+    //  var newcardpric =  e.parentNode.parentNode.childNodes[9].innerText;
+    // //  console.log(newcardpric);
+    //  var newfinalcardprice = newcardpric.slice(4)
+    //   //  console.log(newfinalcardprice);
        
      
-       var total =  parseInt(newfinalcardprice) + f
-        console.log(total);
+    //    var total =  parseInt(newfinalcardprice) + f
+    //     console.log(total);
         
-       var print =   e.parentNode.parentNode.childNodes[9];
-       print.innerText = 'Rs. ' + total
+    //    var print =   e.parentNode.parentNode.childNodes[9];
+    //    print.innerText = 'Rs. ' + total
         // console.log(print);
         // console.log(e.parentNode.parentNode.childNodes[9]);
         
    }    
   
 }
-function Minus(e,f){   
-
-  var numberget = document.getElementById('quantityproductsnum').childNodes[0].innerText;
-  --numberget
-    if(numberget > 0){     // Not decrement increased after 1 number
-   document.getElementById('quantityproductsnum').childNodes[0].innerText = numberget   // Print decremnt number
+function Minus(e){   
+  // console.log("e" + e);
+  // console.log(e.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1]);  
   
-   var cardPrice =  e.parentNode.parentNode.childNodes[9].innerText;
-  //  console.log(cardPrice);
+  var numberget = document.getElementById('proqunanumber').innerText;
+   --numberget
    
-   var finalcardPrice = cardPrice.slice(4)
+  //  console.log(numberget);
    
-  var total =  parseInt(finalcardPrice) - f
-   console.log(total);
+   if(numberget > 0){   // Not increment  increased after 10 number
+     document.getElementById('proqunanumber').innerText = numberget // Print increment number
+
+    var prodPriceget = e.parentNode.previousSibling.previousSibling.childNodes[1];
+    var currentTotalprice =  document.getElementById('updateProductPrice')
+    
+     var Minus = currentTotalprice.innerText -  prodPriceget.innerText 
+     currentTotalprice.innerText = Minus;                                      // Print update Price
+     currentTotalprice.setAttribute('class','top');
+    //  prodPriceget.setAttribute('class','opacity');   
+    document.getElementById('ProductPrice').style.display = 'none'                           // Old Price remove
+    // console.log();
+    }
+    
+  
+  // var numberget = document.getElementById('quantityproductsnum').childNodes[0].innerText;
+  // --numberget
+  //   if(numberget > 0){     // Not decrement increased after 1 number
+  //  document.getElementById('quantityproductsnum').childNodes[0].innerText = numberget   // Print decremnt number
+  
+  //  var cardPrice =  e.parentNode.parentNode.childNodes[9].innerText;
+  // //  console.log(cardPrice);
    
-  var print =   e.parentNode.parentNode.childNodes[9];
-  print.innerText = 'Rs. ' + total
-  //  console.log(print);
-   }   
+  //  var finalcardPrice = cardPrice.slice(4)
+   
+  // var total =  parseInt(finalcardPrice) - f
+  //  console.log(total);
+   
+  // var print =   e.parentNode.parentNode.childNodes[9];
+  // print.innerText = 'Rs. ' + total
+  // //  console.log(print);
+  //  }   
 }
+
 
 function adtocardclose(e){
-  // var imgcon = e.parentNode.parentNode.childNodes[3];
-  // imgcon.innerHTML = ''
-  // var picsname = e.parentNode.parentNode.childNodes[5];
-  // picsname.innerHTML = ''
-  // var cardprice = e.parentNode.parentNode.childNodes[9];
-  // cardprice.innerHTML = ''
-  // var plusminus = e.parentNode.parentNode.childNodes[11];
-  // plusminus.innerHTML = ''
-  // var quantityNumber = e.parentNode.parentNode.childNodes[13];
-  // quantityNumber.innerHTML = ''
-  // var productdetailsheading = e.parentNode.parentNode.childNodes[17].childNodes[1];
-  // console.log(productdetailsheading);
-  
-  // productdetailsheading.innerHTML = ''
-
-  // var productsinfo = e.parentNode.parentNode.childNodes[17].childNodes[2];
-  // console.log(productsinfo);
-  
-  // var productinfoid = productsinfo.getAttribute('id');
-  // console.log(productinfoid);
-  
-  // document.getElementById(productinfoid).style.display = 'none';
-
-  // var producthalfinfd =  e.parentNode.parentNode.childNodes[17].childNodes[1];
-  // var prohalfinfoatt = producthalfinfd.getAttribute('id');
-  // console.log(prohalfinfoatt);
-  
-  //  document.getElementById(prohalfinfoatt).innerHTML = ''
-  //  console.log(e.parentNode.parentNode.childNodes[17].childNodes[1]);
-  
-   
-  document.getElementById('adtoCard-container').style.display = 'none'
-
+  document.getElementById('adtoCard-container').style.display = 'none';
+  document.getElementById('updateProductPrice').innerText = ''
+  document.getElementById('ProductPrice').style.display = 'block'
+  document.getElementById('proqunanumber').innerText = 1;
 }
 
-var customerarr = [];
 function Addtocardclicked(e){
-  alert('Add To Card Sucessful')
-  var productimg = e.parentNode.parentNode.childNodes[3].childNodes[0];
-  // console.log(productimg);
-  
-  var productimgid = productimg.getAttribute('id')
-  var produname = e.parentNode.parentNode.childNodes[5].innerText;
-  var produquanti = e.parentNode.parentNode.childNodes[13].innerText;
-  // console.log(produQuantity);
+  var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
+  var getData = window.localStorage.getItem("dataarr");
+  var getParseData = JSON.parse(getData);
 
-   var customerobj = {
-    productName : produname,
-    productId : productimgid,
-    productQunatity : produquanti
+ var productId =  e.parentNode.parentNode.childNodes[3].getAttribute('id');
+ var productName = e.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[0].nodeValue;
+ var productPrice = e.parentNode.parentNode.childNodes[3].childNodes[7].childNodes[1].childNodes[0].nodeValue;
+ var productQuanti = e.parentNode.parentNode.childNodes[3].childNodes[11].childNodes[0].nodeValue;
+ //  console.log(productQuanti);
+ var productObj = {
+    id: productId,
+    ProName : productName,
+    ProPrice : productPrice,
+    ProQuanti : productQuanti,
+ }
+ 
+for(var i = 0; i<getParseData.length; i++){
+  if (getCurrentUserObjINLs.Email == getParseData[i].Email) {
+    if (!getParseData[i].Order) {
+      getParseData[i].Order = [];
     }
-    customerarr.push(customerobj)
+    getParseData[i].Order.push(productObj);
+    window.localStorage.setItem("dataarr", JSON.stringify(getParseData));
+    alert('Oder Done ✔')
+  }
+}
+document.getElementById('adtoCard-container').style.display = 'none';
+document.getElementById('updateProductPrice').innerText = ''
+document.getElementById('ProductPrice').style.display = 'block'
+document.getElementById('proqunanumber').innerText = 1
 
-console.log(customerarr);
 }
 
+if(window.location.href.indexOf('dashboard.html') != -1){
+  var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
+  // console.log(UserData);
+  var table = document.getElementById('table');
+ for(var i = 0; i<UserData.length; i++){
+    table.innerHTML += `
+      <tr> 
+        <td> ${i + 1} </td>
+        <td> ${UserData[i].namee} </td>
+        <td> ${UserData[i].Email} </td>
+        <td> <button onclick = 'DeleteUser(this)'> Delete </button> </td>
+      </tr>
+    `
+ }
+  
+  // alert('dashboard')
+}
+
+function DeleteUser(e){
+  var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
+  var deleteuserEmail = e.parentNode.parentNode.childNodes[5].innerText;
+console.log(UserData[0].Email);
+console.log(deleteuserEmail);
+
+
+  for(var i = 0; i < UserData.length; i++){
+    if(UserData[i].Email == deleteuserEmail){
+      
+      // window.localStorage.removeItem('dataarr')
+    }
+  }
+  
+}

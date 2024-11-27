@@ -352,10 +352,11 @@ s::before{
 .add-tocard-con{
     display: none;
     position: fixed;
-    top: 0px;
+    top: 20px;
     right: 20px;
     width: 350px;
-    height: auto;
+    min-height: 95vh;
+    height: 95vh;
     background-color: #b8ecb3;
     padding-bottom: 50px;
 }
@@ -376,7 +377,7 @@ s::before{
      width: 65%;
      height: 100%;
 }
-#atctext1 h2{
+.atc-text1 h3{
     font-size: 22px;
     margin-top: 5px;
     margin-left: 15px;
@@ -389,11 +390,12 @@ s::before{
     font-size: 13px;
     letter-spacing: 1px;
 }
-/* #atcPrice p{
-    margin-left: 15px;
-    font-size: 19px;
-    font-weight: 600;
-} */
+#proprice p{
+    margin-left: 3px; 
+   font-size: 17px;
+   font-family: monospace; 
+     font-weight: 400;
+}
 #plus-minus{
    position: absolute;
    top: 295px;
@@ -409,17 +411,34 @@ s::before{
     font-weight: 500;
     margin-left: 50px;
 }
-#quantityproductsnum{
+#proqunanumber{
     position: absolute;
     top: 298px;
     right: 80px;
     font-size: 22px;
     font-weight: bolder;
 }
+.opacity{
+    /* opacity: 0; */
+    display: none;
+}
+/* .top{
+    position: relative;
+    bottom: 15px;
+} */
 #delevery-time{
-    margin-top: 10px;
+    margin-top: 15px;
     display: flex;
     padding-left: 12px;
+}
+#products-details p{
+    font-size: 15px;
+}
+.add-tocard-con img {
+    mix-blend-mode: multiply;
+}
+#Productdetailsfull{
+    display: none;
 }
 .clock{
     width: 40px;
