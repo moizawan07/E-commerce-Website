@@ -10,30 +10,231 @@
     list-style: none;
     text-decoration: none;
 }
-.second{
+.header{
+    width: 100%;
+    background-color: #212121;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   padding-left: 35px;
+   padding-right: 10px;
+}
+.logo span{
+    color: rgb(235, 174, 8);
+    font-size: 45px;
+    font-family: "Oleo Script", serif;
+    font-weight: 200;
+    margin-right: 3px;
+}
+
+.header img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* mix-blend-mode: multiply; */
+}
+.logo h2{
+    color: aliceblue;
+}
+.searchbar{
+    width: 500px;
+    height: 35px;
+    align-content: center;
+    border: 1px solid rgb(120, 116, 116);
+    color: rgb(150, 146, 146);
+    border-radius: 10px;
+}
+.searchbar input{
+    width: 90%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(149, 145, 145);
+    padding-left: 15px;
+}
+::placeholder{
+    color: rgb(170, 168, 168);
+}
+.settings i{
+    color: grey;
+    margin-right: 15px;
+}
+#down{
+    position: absolute;
+    bottom: 17.1px;
+   left: 31.2px;
+}
+#main{
+    margin-bottom: 5px;
+}
+.settings{
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.two-side-main-conatiner{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+}
+.left-main-con{
+    padding-top: 20px;
+    width: 18%;
+    position: sticky;
+    top: 0px;
+    background-color: #333333;
+}
+.right-main-con{
+    background-color: whitesmoke;
+    padding-top: 30px;
+    padding-inline: 3px;
+    width: 82%;
+}
+.first-haid {
+    padding-left: 5%;
+}
+.first-haid p{
+    font-size: 12px;
+   font-weight: 200;
+   font-family: "Oleo Script", serif;
+    color: rgb(235, 174, 8);
+    letter-spacing: 0.5px;
+}
+.first-ul{
+    margin-top: 10px;
+}
+li .icon{
+    color: white;
+    margin-right: 20px;
+}
+.first-ul li{
+    padding-left: 11px;
+   line-height: 40px;
+    align-content: center;
+    margin-top: 2px;
+}
+.first-ul li:hover{
+    background-color: #FF0000;
+}
+#firsli{
+    background-color: #FF0000;
+}
+#firsli:hover{
+    background-color: transparent;
+    border: 1px solid rgb(230, 225, 225);
+}
+li .text{
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+}
+.hr{
     margin-top: 20px;
-    width: 70%;
-    margin: auto;
-    /* border: 1px solid black; */
+    border: 0.7px solid grey;
+}
+#SECOND-HEAD{
+    margin-top: 15px;
+}
+.right-first-hedr{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.right-first-header-card1{
+    display: flex;
+    width: 270px;
+    padding-top: 25px;
+    padding-inline: 2.5%;
+    justify-content: space-between;
+    color: white;
+    height: 125px;
+}
+.right-first-header-card1 h1{
+    font-weight: bold;
+    font-size: 25px;
+}
+.right-first-header-card1 h3{
+    margin-left: 20px;
+}
+.right-first-header-card1 i{
+    font-size: 70px;
+}
+#rcard1{background-color: red;}
+#rcard2{background-color: #FFC400;}
+#rcard3{background-color: #00D247;}
+#rcard4{background-color: #2669FF;}
+#rcard2 h3,#rcard4 h3{
+    margin-left: 0px;
+    font-size: 17px;
+}
+#rcard3 h3{
+    margin-left: 5px;
+    font-size: 17px;
+}
+.right-section2{
+    padding-top: 30px;
+    width: 97%;
+    margin: 30px auto;
+   padding-inline: 5px;
+    background-color: white;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+.rs2-first-line{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 30px;
+}
+.rs2-first-line h2{
+    font-size: 19px;
+    font-weight: 500;
+}
+.rs2-first-line button{
+    width: 60px;
+    height: 25px;
+    border: 1px solid grey;
+    margin-left: 5px;
+    border-radius: 3px;
+}
+#ad{
+   color: white;
+   border: none;
+   background-color: #3c70e1;
 }
 table{
-    width: 100%;
-    border: 1px solid rgb(224, 45, 224);
+    width: 95%;
+    border: 1px solid green;
+    margin: 30px 20px;
     text-align: center;
     border-collapse: collapse;
 }
 th{
     font-weight: 600;
 }
+td{
+    font-size: 15px;
+    font-weight: 300;
+}
 tr{
     border: 1px solid green;
-    line-height: 45px;
+    line-height: 40px;
 }
-button{
+tr button{
     background-color: red;
     color: white;
-    height: 30px;
+    padding-inline: 15px;
+    padding-block: 4px;
     border: none;
-    width: 100px;
     border-radius: 3px;
+}
+.sno{
+    color: #4239E5;
+}
+.name{
+    /* color: #F49E1A; */
 }

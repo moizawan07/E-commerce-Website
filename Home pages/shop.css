@@ -51,8 +51,8 @@
 }
 .show-icons{
      position: absolute;
-    top: 100px;
-     right: 20px;
+    top: 150px;
+     right: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,15 +91,143 @@
     color: black;
     /* color: #41f7ee; */
 }
+.iconss{
+    /* margin-right: 150px; */
+}
+
 .iconss i{
     font-size: 18px;
+    /* color: rgb(83, 82, 82); */
+    color: #d44a00;
     margin-left: 20px;
+}
+.croos-icon i{
+    color: #1f4d00;
 }
 .nav-icon{
     display: none;
     font-size: 20px;
+    color: #133000;
+}
+.full-profile-con{
+    position: absolute;
+    right: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(69, 68, 68);
+    font-size: 14px;
+}
+.profile{
+    width: 55px;
+    height: 55px;
+}
+.profile img{
+    border: 1.5px solid black;
+    border-radius: 50%; 
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+}
+.full-profile{
+    position: absolute;
+    right: 12px;
+    top: 22px;
+}
+.profilenavbar{
+    margin-left: 20px;
+    margin-bottom: 5px;
+    width: 60px;
+    height: 60px;
+    top: 20px;
+}
+.profilenavbar img{
+    border-radius: 50%; 
+    border: 1.5px solid black;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
 }
 /* header section Css End here */
+/* Crousel section Start */
+
+.carousel-container {
+    position: relative;
+    width: 90%;
+    /* max-width: 900px;  Set a max width */
+    /* height: 430px; */
+    margin: 20px auto;
+    overflow: hidden;
+    /* border: 1px solid black; */
+}
+
+.carousel {
+    display: flex;
+    border: 1px solid black;
+    height: 450px;
+    transition: transform 1s ease;
+}
+
+.carousel img {
+    width: 1200px;
+    /* width: 100%;  Make images responsive */
+    /* height: 100%; */
+}
+
+.bullets {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid white;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.bullet.active {
+    background-color: #fff;
+    opacity: 1;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .carousel-container {
+        max-width: 100%;
+        /* height: 200px;  Adjust height for mobile */
+    }
+
+    .carousel img {
+        width: 100%;
+        height: auto;
+    }
+
+    .bullets {
+        bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-container {
+        max-width: 100%;
+        height: 150px;  /* Further reduce height on very small screens */
+    }
+
+    .bullets {
+        bottom: 5px;
+    }
+}
+/* Crousel section End */
 /* Hero section Css Start here */
 .hero-section-main{
     margin-top: 10px;
@@ -597,9 +725,16 @@ b{
     .iconss{
         display: none;
     }
+    .navbar{
+        position: relative;
+        right: 50px;
+    }
 }
 @media(max-width:825px){
     .navbar{
+        display: none;
+    }
+    .full-profile-con{
         display: none;
     }
     .nav-icon{

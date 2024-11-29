@@ -12,6 +12,7 @@
 }
 body{
     width: 100%;
+    border: 1px solid black;
 }
 .main-container{
     width: 99.9%;
@@ -55,8 +56,8 @@ body{
 }
 .show-icons{
      position: absolute;
-    top: 100px;
-     right: 20px;
+    top: 150px;
+     right: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,13 +93,59 @@ body{
 .navbar ul li a:hover{
     color: black;
 }
+.iconss{
+    margin-right: 150px;
+}
 .iconss i{
+    color: #d44a00;
     font-size: 18px;
     margin-left: 20px;
+    /* text-shadow: 0px 0px 3px #122d00; */
 }
 .nav-icon{
+    color: #133000;
     display: none;
     font-size: 25px;
+}
+.full-profile-con{
+    position: absolute;
+    right: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(69, 68, 68);
+    font-size: 14px;
+}
+.profile{
+    width: 55px;
+    height: 55px;
+}
+.profile img{
+    border: 1.5px solid black;
+    border-radius: 50%; 
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+}
+.full-profile{
+    position: absolute;
+    right: 12px;
+    top: 22px;
+}
+.profilenavbar{
+    margin-left: 20px;
+    margin-bottom: 5px;
+    width: 60px;
+    height: 60px;
+    top: 20px;
+}
+.profilenavbar img{
+    border-radius: 50%; 
+    border: 1.5px solid black;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
 }
 /* header section Css End here */
 
@@ -110,10 +157,13 @@ body{
     padding-top: 10px;
     display: flex;
     justify-content: center;
+    /* align-items: start; */
+    padding-bottom: 50px;
 }
 .hero-left-main{
     margin-top: 150px;
     width: 30%;
+    height: 500px;
     /* border: 1px solid black; */
 }
 .hero-left-main h1{
@@ -140,7 +190,7 @@ body{
     position: relative;
     left: 12.55%;
     width: 45%;
-    height: 100vh;
+    height: 700px;
     /* border: 1px solid black; */
 }
 .hero-right-main img{
@@ -478,8 +528,8 @@ body{
         width: 40%;
     }
     .hero-right-main{
-        height: 80vh;
-        left: 10%;
+        /* height: 80vh; */
+        left: 7%;
     }
 }
 
@@ -488,7 +538,7 @@ body{
         width: 50%;
     }
     .hero-right-main{
-        height: 70vh;
+        /* height: 70vh; */
         left: 5%;
     }
     .s2right {
@@ -502,6 +552,9 @@ body{
     }
 
     .navbar{
+        display: none;
+    }
+    .full-profile-con{
         display: none;
     }
     .header{
@@ -528,13 +581,13 @@ body{
         row-gap: 20px;
     }
     .hero-left-main{
-        width: 70%;
+        width: 75%;
         margin: auto;
     }
     .hero-right-main{
         margin: auto;
-        width: 85%;
-        height: 70vh;
+        width: 89%;
+        /* height: 70vh; */
         left: 0%;
     }
     .s2right {
@@ -569,7 +622,7 @@ body{
     .hero-right-main{
         margin: auto;
         width: 90%;
-        height: 70vh;
+        /* height: 70vh; */
         left: 0%;
     }
     .hero-left-main h1{

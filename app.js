@@ -11,15 +11,18 @@ function signUp(){
     }
    
     if(userObj.namee && userObj.Email && userObj.phoneNum && userObj.password){
+      //  if(userObj.Email == 'Moizadmin@gmail.com'){
+      //   alert('You cant Login by this Email')
+      //  }
     if(dataArr.length > 0){
-      var chekemailans = true  
+      var chekemailans = true; 
        for(var i = 0; i < dataArr.length; i++){
           if(dataArr[i].Email == userObj.Email){
              chekemailans = false;
-             break
+             break;
              }
         }
-          if(chekemailans == false){
+          if(chekemailans == false || userObj.Email == 'Moizadmin@gmail.com'){
             alert('you cant login by this email')
           }
           else{
@@ -32,13 +35,18 @@ function signUp(){
         
     }
     else{
+       if(userObj.Email != 'Moizadmin@gmail.com'){
         alert('Sign Up Sucessful ✔')
         dataArr.push(userObj)
         var stringyformat = JSON.stringify(dataArr) 
         window.localStorage.setItem('dataarr', stringyformat)
          window.location.href = 'login page/login.html'
     }
+    else{
+      alert('you cant login by this email')
+    }
     
+}
 }
 else{
     alert('fill out the form info')
@@ -82,6 +90,10 @@ function logIn(){
     alert('Insert a Correct data')
   }
 }
+
+// Crousel Code Start
+
+// Crousel Code End
 
 function ProducrtsSea(e){
   var categoryName = e.childNodes[3].innerHTML;
@@ -390,12 +402,14 @@ function Addtocardclicked(e){
   var getParseData = JSON.parse(getData);
 
  var productId =  e.parentNode.parentNode.childNodes[3].getAttribute('id');
+ var productImgSrc = e.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].src;
  var productName = e.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[0].nodeValue;
  var productPrice = e.parentNode.parentNode.childNodes[3].childNodes[7].childNodes[1].childNodes[0].nodeValue;
  var productQuanti = e.parentNode.parentNode.childNodes[3].childNodes[11].childNodes[0].nodeValue;
- //  console.log(productQuanti);
+  console.log(productImgSrc);
  var productObj = {
     id: productId,
+    imgLink : productImgSrc,
     ProName : productName,
     ProPrice : productPrice,
     ProQuanti : productQuanti,
@@ -418,36 +432,115 @@ document.getElementById('proqunanumber').innerText = 1
 
 }
 
-if(window.location.href.indexOf('dashboard.html') != -1){
-  var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
-  // console.log(UserData);
-  var table = document.getElementById('table');
- for(var i = 0; i<UserData.length; i++){
-    table.innerHTML += `
-      <tr> 
-        <td> ${i + 1} </td>
-        <td> ${UserData[i].namee} </td>
-        <td> ${UserData[i].Email} </td>
-        <td> <button onclick = 'DeleteUser(this)'> Delete </button> </td>
-      </tr>
-    `
- }
-  
-  // alert('dashboard')
+
+if(window.location.href.indexOf('home.html') != -1){
+  var getNameLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
+     getNameLs = getNameLs.namee
+  var profileNameSet = document.querySelectorAll('.proName');
+    profileNameSet[0].innerText = getNameLs;
+    profileNameSet[1].innerText = getNameLs;
+  }
+  // if(window.location.href.indexOf('shop.html') != -1){
+  //  var getNameLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
+  //    getNameLs = getNameLs.namee
+  //    var profileNameSet2 = document.querySelectorAll('.SProname');
+  //    profileNameSet2[0].innerText = getNameLs;
+  //    profileNameSet2[1].innerText = getNameLs;
+  //   var img1 = document.getElementById('img1');  
+  //   var img2 = document.getElementById('img2');  
+  // } 
+
+function ImgSelect(){
+  var img = document.getElementById('Image');
+  var img1 = document.getElementById('Image1');
+  var inputfile = document.getElementById('Input-url');
+  img.src = URL.createObjectURL(inputfile.files[0]);
+  img1.src = img.src;
 }
 
-function DeleteUser(e){
-  var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
-  var deleteuserEmail = e.parentNode.parentNode.childNodes[5].innerText;
-console.log(UserData[0].Email);
-console.log(deleteuserEmail);
+//  Add To card Data show By Cards File
 
+if(window.location.href.indexOf('card.html') != -1){
+  var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
+  var getData = window.localStorage.getItem("dataarr");
+  var getParseData = JSON.parse(getData);
 
-  for(var i = 0; i < UserData.length; i++){
-    if(UserData[i].Email == deleteuserEmail){
-      
-      // window.localStorage.removeItem('dataarr')
+var printCardincon = document.getElementById('container-for-cards-display');
+for(var i = 0; i<getParseData.length; i++){
+  if(getParseData[i].Email == getCurrentUserObjINLs.Email){
+        for(var j = 0; j<getParseData[i].Order.length; j++){
+        printCardincon.innerHTML += `
+          <div class = 'card1'>
+          <img src="${getParseData[i].Order[j].imgLink}">
+          <h3> ${getParseData[i].Order[j].ProName} </h3>
+             <p class = 'Price'> ${getParseData[i].Order[j].ProPrice} </p>
+             <p class = 'quantity'> ${getParseData[i].Order[j].ProQuanti} </p>
+             <button onclick = 'CustomerDeleteProduct(this)'> Delete </button>
+          </div>
+        `
+        }
     }
   }
   
 }
+function CustomerDeleteProduct(e){
+  var productName = e.parentNode.childNodes[3].innerText;
+  console.log(productName);
+  var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
+  var getData = window.localStorage.getItem("dataarr");
+  var getParseData = JSON.parse(getData);
+  
+  for(var i = 0; i<getParseData.length; i++){
+    if(getParseData[i].Email == getCurrentUserObjINLs.Email){
+         for(var j = 0; j < getParseData[i].Order.length;  j++){
+           if(productName == getParseData[i].Order[j].ProName){
+             getParseData[i].Order.splice(j,1);
+             //  console.log(getParseData);
+             window.localStorage.setItem("dataarr", JSON.stringify(getParseData));
+             e.parentNode.style.display = 'none'
+            }
+            // console.log(j);
+          }
+      }
+    } 
+   
+    
+}
+
+
+  // Dashboard Start
+  if(window.location.href.indexOf('dashboard.html') != -1){
+      var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
+      // console.log(UserData);
+      var table = document.getElementById('table');
+     for(var i = 0; i<UserData.length; i++){
+        table.innerHTML += `
+          <tr> 
+            <td class = 'sno'> ${i + 1} </td>
+            <td class = 'name'> ${UserData[i].namee} </td>
+            <td class = 'email'> ${UserData[i].Email} </td>
+            <td> <button onclick = 'DeleteUser(this)'> Delete </button> </td>
+          </tr>
+        `
+     }
+      
+      // alert('dashboard')
+  }
+    
+  function DeleteUser(e){
+      var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
+      var deleteuserEmail = e.parentNode.parentNode.childNodes[5].innerText;
+    // console.log(deleteuserEmail);
+    var table = document.getElementById('table');
+    var tr = table.getElementsByTagName('tr');   
+    
+      for(var i = 0; i < UserData.length; i++){
+        if(UserData[i].Email == deleteuserEmail){
+           UserData.splice(i,1)
+           console.log(UserData);
+           window.localStorage.setItem('dataarr',JSON.stringify(UserData));
+          //  tr[i + 1].style.display = 'none';
+        }
+      }
+      
+    }

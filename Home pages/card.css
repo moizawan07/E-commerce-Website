@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+}
+.responsive-navbar{
+    z-index: 1;
+    display: none;
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    color: black;
+    background-color: #E3EFFB;
+    top: 0px;
+    right: 0px;
+    transition: 1s ease-in-out;
+}
+.responsive-navbar ul{
+    margin-top: 130px;
+    padding-left: 20px;
+}
+.responsive-navbar ul li{
+    padding-block: 6px;
+    padding-left: 3px;
+    border-radius: 5px;
+    width: 70%;
+    margin-top: 20px;
+}
+.responsive-navbar ul li a{
+    width: 80%;
+    color: #2b7b00;
+    font-weight: bolder;
+}
+.croos-icon{
+    position: absolute;
+    font-weight: bolder;
+    font-size: 35px;
+    top: 20px;
+    left: 20px;
+}
+.show-icons{
+     position: absolute;
+    top: 150px;
+     right: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Responsive navbar End */
+/* header section Css Start here */
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #E3EFFB;
+    /* background-color: #064C4F; */
+}
+.logo{
+    width: 250px;
+    position: relative;
+    right: 50px;
+}
+.logo img{
+    width: 100%;
+}
+.navbar ul{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+.navbar ul li a{
+    font-weight: 600;
+    color: #2d7500;
+    /* color: white; */
+}
+.navbar ul li a:hover{
+    color: black;
+    /* color: #41f7ee; */
+}
+.iconss{
+    /* margin-right: 150px; */
+}
+
+.iconss i{
+    font-size: 18px;
+    /* color: rgb(83, 82, 82); */
+    color: #d44a00;
+    margin-left: 20px;
+}
+.croos-icon i{
+    color: #1f4d00;
+}
+.nav-icon{
+    display: none;
+    font-size: 20px;
+    color: #133000;
+}
+.full-profile-con{
+    position: absolute;
+    right: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(69, 68, 68);
+    font-size: 14px;
+}
+.profile{
+    width: 55px;
+    height: 55px;
+}
+.profile img{
+    border: 1.5px solid black;
+    border-radius: 50%; 
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+}
+.full-profile{
+    position: absolute;
+    right: 12px;
+    top: 22px;
+}
+.profilenavbar{
+    margin-left: 20px;
+    margin-bottom: 5px;
+    width: 60px;
+    height: 60px;
+    top: 20px;
+}
+.profilenavbar img{
+    border-radius: 50%; 
+    border: 1.5px solid black;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+}
+/* header section Css End here */
+#container-for-cards-display{
+    width: 100%;
+    /* border: 1px solid black;  */
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.card1{
+    width: 250px;
+    height: 350px;
+   box-shadow: 0px 0px 3px #133000;
+    text-align: center;
+    position: relative;
+    padding-left: 2%;
+}
+.card1 img{
+    width: 70%;
+    height: 150px;
+}
+.card1 h3{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+}
+.Price,.quantity{
+    text-align: left;
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 17px;
+}
+.Price::before{
+    content: 'Price:';
+    font-weight: 500;
+    font-family: "Poppins", serif;
+    font-size: 17px;
+}
+.quantity::before{
+    content: 'Quantity';
+    font-weight: 500;
+    font-family: "Poppins", serif;
+    font-size: 17px;
+}
+.card1 button{
+    margin-top: 20px;
+    position: absolute;
+    left: 8%;
+    bottom: 30px;
+    text-align: center;
+    border-radius: 3px;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: red;
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:1070px){
+    .logo{
+        right: 20px;
+    }
+}
+@media(max-width:900px){
+    .iconss{
+        display: none;
+    }
+    .navbar{
+        position: relative;
+        right: 50px;
+    }
+}
+@media(max-width:825px){
+    .navbar{
+        display: none;
+    }
+    .full-profile-con{
+        display: none;
+    }
+    .nav-icon{
+        display: block;
+        position: relative;
+        right: 20px;
+    }
+    .nav-icon i{
+        font-size: 25px;
+    }
+    .header{
+        justify-content: space-between;
+    }
+    .logo{
+        left: 10px;
+        right: 0px;
+    }
+    .responsive-navbar{
+        display: none;
+        /* right: -100%; */
+    }
+}
+@media(max-width:500px){
+    .responsive-navbar{
+        width: 60%;
+    }
+}
