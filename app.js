@@ -433,7 +433,7 @@ document.getElementById('proqunanumber').innerText = 1
 }
 
 
-if(window.location.href.indexOf('home.html') != -1){
+if(window.location.href.indexOf('home') != -1){
   var getNameLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
      getNameLs = getNameLs.namee
   var profileNameSet = document.querySelectorAll('.proName');
@@ -460,7 +460,7 @@ function ImgSelect(){
 
 //  Add To card Data show By Cards File
 
-if(window.location.href.indexOf('card.html') != -1){
+if(window.location.href.indexOf('card') != -1){
   var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
   var getData = window.localStorage.getItem("dataarr");
   var getParseData = JSON.parse(getData);
@@ -509,7 +509,7 @@ function CustomerDeleteProduct(e){
 
 
   // Dashboard Start
-  if(window.location.href.indexOf('dashboard.html') != -1){
+  if(window.location.href.indexOf('dashboard') != -1){
       var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
       // console.log(UserData);
       var table = document.getElementById('table');
