@@ -433,7 +433,7 @@ document.getElementById('proqunanumber').innerText = 1
 }
 
 
-if(window.location.href.indexOf('home') != -1){
+if(window.location.href.indexOf('home.html') != -1){
   var getNameLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
      getNameLs = getNameLs.namee
   var profileNameSet = document.querySelectorAll('.proName');
