@@ -165,6 +165,7 @@ function navOf(){
 // Product Select Function
 
 function productSelect(e){
+  document.querySelector('.main-container').style.opacity = 0.5;
   document.getElementById('adtoCard-container').style.display = 'block';
   var getProductCardId = e.parentNode.getAttribute('id');    // Main Card Get id
   var productImgGet = e.parentNode.childNodes[1];
@@ -390,12 +391,15 @@ function Minus(e){
 
 
 function adtocardclose(e){
+  document.querySelector('.main-container').style.opacity = 1;
+
   document.getElementById('adtoCard-container').style.display = 'none';
   document.getElementById('updateProductPrice').innerText = ''
   document.getElementById('ProductPrice').style.display = 'block'
   document.getElementById('proqunanumber').innerText = 1;
 }
 
+var addtocardArr = JSON.parse(window.localStorage.getItem('addtoCardArr')) || [];
 function Addtocardclicked(e){
   var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
   var getData = window.localStorage.getItem("dataarr");
@@ -406,28 +410,33 @@ function Addtocardclicked(e){
  var productName = e.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[0].nodeValue;
  var productPrice = e.parentNode.parentNode.childNodes[3].childNodes[7].childNodes[1].childNodes[0].nodeValue;
  var productQuanti = e.parentNode.parentNode.childNodes[3].childNodes[11].childNodes[0].nodeValue;
-  console.log(productImgSrc);
- var productObj = {
+  // console.log(productImgSrc);
+
+   addtocardArr.push({
     id: productId,
     imgLink : productImgSrc,
     ProName : productName,
     ProPrice : productPrice,
     ProQuanti : productQuanti,
- }
- 
-for(var i = 0; i<getParseData.length; i++){
-  if (getCurrentUserObjINLs.Email == getParseData[i].Email) {
-    if (!getParseData[i].Order) {
-      getParseData[i].Order = [];
-    }
-    getParseData[i].Order.push(productObj);
-    window.localStorage.setItem("dataarr", JSON.stringify(getParseData));
-    alert('Oder Done ✔')
-  }
-}
+ })
+ alert('Add to Card Sucessful');
+
+ window.localStorage.setItem('addtoCardArr',JSON.stringify(addtocardArr))
+// for(var i = 0; i<getParseData.length; i++){
+//   if (getCurrentUserObjINLs.Email == getParseData[i].Email) {
+//     if (!getParseData[i].Order) {
+//       getParseData[i].Order = [];
+//     }
+//     getParseData[i].Order.push(productObj);
+//     window.localStorage.setItem("dataarr", JSON.stringify(getParseData));
+//     alert('Oder Done ✔')
+//   }
+// }
+
 document.getElementById('adtoCard-container').style.display = 'none';
 document.getElementById('updateProductPrice').innerText = ''
 document.getElementById('ProductPrice').style.display = 'block'
+document.querySelector('.main-container').style.opacity = 1;
 document.getElementById('proqunanumber').innerText = 1
 
 }
@@ -461,57 +470,145 @@ function ImgSelect(){
 //  Add To card Data show By Cards File
 
 if(window.location.href.indexOf('card') != -1){
-  var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
-  var getData = window.localStorage.getItem("dataarr");
-  var getParseData = JSON.parse(getData);
-
-var printCardincon = document.getElementById('container-for-cards-display');
-for(var i = 0; i<getParseData.length; i++){
-  if(getParseData[i].Email == getCurrentUserObjINLs.Email){
-        for(var j = 0; j<getParseData[i].Order.length; j++){
-        printCardincon.innerHTML += `
-          <div class = 'card1'>
-          <img src="${getParseData[i].Order[j].imgLink}">
-          <h3> ${getParseData[i].Order[j].ProName} </h3>
-             <p class = 'Price'> ${getParseData[i].Order[j].ProPrice} </p>
-             <p class = 'quantity'> ${getParseData[i].Order[j].ProQuanti} </p>
-             <button onclick = 'CustomerDeleteProduct(this)'> Delete </button>
+  var getAddtoCardProduct = JSON.parse(window.localStorage.getItem("addtoCardArr"));
+  if(getAddtoCardProduct.length > 0){
+    document.getElementById('msg').style.display = 'none'
+  }
+  else{
+    document.getElementById('msg').style.display = 'block'
+  }
+  var printData = document.getElementById('sl-Secondline-main')
+// console.log(getAddtoCardProduct[2].ProPrice);
+  var total = 0;
+  for (var i = 0; i < getAddtoCardProduct.length; i++) {
+    printData.innerHTML += `
+      <div class="allLine-flex">
+        <div class="Img-and-description-main">
+          <img src="${getAddtoCardProduct[i].imgLink}" alt="${getAddtoCardProduct[i].ProName}">
+          <h3> ${getAddtoCardProduct[i].ProName} </h3>
+        </div>
+        <div class="Quantity-and-Price-main">
+          <h2 class="Quantity"> ${getAddtoCardProduct[i].ProQuanti}</h2>
           </div>
-        `
-        }
+          <h2 class="Price"> ${getAddtoCardProduct[i].ProPrice} </h2>
+        <div class="remove-btns">
+          <button class="heart">❤</button>
+          <button class="delete" onclick = 'removeAddToCard(this)'>Remove</button>
+        </div>
+      </div>
+    `;
+    total += parseInt(getAddtoCardProduct[i].ProPrice)
+}
+document.getElementById('Total').innerHTML = total;
+var afterDisscount ;
+var discountPercen ;
+if(total >=9000){
+   afterDisscount = total * 0.95;
+   discountPercen = '5%'
+}
+else{
+  afterDisscount = total * 0.98
+  discountPercen = '2%'
+}
+document.getElementById('discount').innerHTML = discountPercen
+document.getElementById('discountafter').innerHTML = afterDisscount;
+// console.log(disscount);
+
+}
+function removeAddToCard(e){
+  var productName = e.parentNode.parentNode.childNodes[1].childNodes[3].innerText;
+  var updateArr = []
+    // console.log(productName);
+    var addtoCardArr = JSON.parse(window.localStorage.getItem('addtoCardArr'));
+    for(var i = 0; i<addtoCardArr.length; i++){ 
+      if(addtoCardArr[i].ProName != productName){
+         updateArr.push(addtoCardArr[i])
+      }
+    }
+    e.productName = e.parentNode.parentNode.remove()
+    window.localStorage.setItem('addtoCardArr', JSON.stringify(updateArr));
+
+  var getAddtoCardProduct = JSON.parse(window.localStorage.getItem("addtoCardArr"));
+
+  var total = 0;
+    for(var i = 0; i < getAddtoCardProduct.length; i++){
+      total += parseInt(getAddtoCardProduct[i].ProPrice)
+    }
+  document.getElementById('Total').innerHTML = total;
+  var afterDisscount  = '0';
+  var discountPercen = '0%';
+  if(total >=9000){
+     afterDisscount = total * 0.95;
+     discountPercen = '5%'
+  }
+  else{
+    if(total > 0){
+       afterDisscount = total * 0.98
+       discountPercen = '2%'
     }
   }
+  document.getElementById('discount').innerHTML = discountPercen
+  document.getElementById('discountafter').innerHTML = afterDisscount;
   
+  if(getAddtoCardProduct.length > 0){
+    document.getElementById('msg').style.display = 'none'
+  }
+  else{
+    document.getElementById('msg').style.display = 'block'
+  }
 }
-function CustomerDeleteProduct(e){
-  var productName = e.parentNode.childNodes[3].innerText;
-  console.log(productName);
-  var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
-  var getData = window.localStorage.getItem("dataarr");
-  var getParseData = JSON.parse(getData);
-  
-  for(var i = 0; i<getParseData.length; i++){
-    if(getParseData[i].Email == getCurrentUserObjINLs.Email){
-         for(var j = 0; j < getParseData[i].Order.length;  j++){
-           if(productName == getParseData[i].Order[j].ProName){
-             getParseData[i].Order.splice(j,1);
-             //  console.log(getParseData);
-             window.localStorage.setItem("dataarr", JSON.stringify(getParseData));
-             e.parentNode.style.display = 'none'
-            }
-            // console.log(j);
-          }
-      }
-    } 
+
+function Purchase(){
+    alert('Order Done');
+    var orders =  JSON.parse(window.localStorage.getItem('Orders')) ||  [];
+    var getProductsCistomer = JSON.parse(window.localStorage.getItem('addtoCardArr'))
    
+    for(var i = 0; i<getProductsCistomer.length; i++){
+         orders.push(getProductsCistomer[i]);
+    }
+    getProductsCistomer.length = '0'
+    window.localStorage.setItem('addtoCardArr',JSON.stringify(getProductsCistomer));
+    window.localStorage.setItem('Orders',JSON.stringify(orders));
+
+    document.getElementById('msg').style.display = 'block'
+    var st = document.querySelectorAll('.allLine-flex')
+    for(var j = 0; j<st.length; j++){
+        st[j].remove()
+    }
+   document.getElementById('discountafter').innerHTML = 0;
+   document.getElementById('discount').innerHTML = 0;
+   document.getElementById('Total').innerHTML = 0;
+
     
 }
+// function CustomerDeleteProduct(e){
+//   var productName = e.parentNode.childNodes[3].innerText;
+//   console.log(productName);
+//   var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
+//   var getData = window.localStorage.getItem("dataarr");
+//   var getParseData = JSON.parse(getData);
+  
+//   for(var i = 0; i<getParseData.length; i++){
+//     if(getParseData[i].Email == getCurrentUserObjINLs.Email){
+//          for(var j = 0; j < getParseData[i].Order.length;  j++){
+//            if(productName == getParseData[i].Order[j].ProName){
+//              getParseData[i].Order.splice(j,1);
+//              //  console.log(getParseData);
+//              window.localStorage.setItem("dataarr", JSON.stringify(getParseData));
+//              e.parentNode.style.display = 'none'
+//             }
+//             // console.log(j);
+//           }
+//       }
+//     } 
+   
+    
+// }
 
 
   // Dashboard Start
   if(window.location.href.indexOf('dashboard') != -1){
       var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
-      // console.log(UserData);
       var table = document.getElementById('table');
      for(var i = 0; i<UserData.length; i++){
         table.innerHTML += `
@@ -523,9 +620,8 @@ function CustomerDeleteProduct(e){
           </tr>
         `
      }
-      
-      // alert('dashboard')
-  }
+
+}
     
   function DeleteUser(e){
       var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
@@ -539,7 +635,7 @@ function CustomerDeleteProduct(e){
            UserData.splice(i,1)
            console.log(UserData);
            window.localStorage.setItem('dataarr',JSON.stringify(UserData));
-          //  tr[i + 1].style.display = 'none';
+           tr[i + 1].remove();
         }
       }
       

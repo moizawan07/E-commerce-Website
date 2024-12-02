@@ -480,6 +480,7 @@ s::before{
 .add-tocard-con{
     display: none;
     position: fixed;
+    z-index: 1;
     top: 20px;
     right: 20px;
     width: 350px;
@@ -487,6 +488,8 @@ s::before{
     height: 95vh;
     background-color: #b8ecb3;
     padding-bottom: 50px;
+    box-shadow: 0px 0px 3px black;
+    border-radius: 5px;
 }
 .close-icon{
     font-size: 25px;
