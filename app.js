@@ -419,25 +419,25 @@ function Addtocardclicked(e){
     ProPrice : productPrice,
     ProQuanti : productQuanti,
  })
- alert('Add to Card Sucessful');
-
+ 
  window.localStorage.setItem('addtoCardArr',JSON.stringify(addtocardArr))
-// for(var i = 0; i<getParseData.length; i++){
-//   if (getCurrentUserObjINLs.Email == getParseData[i].Email) {
-//     if (!getParseData[i].Order) {
-//       getParseData[i].Order = [];
-//     }
-//     getParseData[i].Order.push(productObj);
-//     window.localStorage.setItem("dataarr", JSON.stringify(getParseData));
-//     alert('Oder Done ✔')
-//   }
-// }
-
-document.getElementById('adtoCard-container').style.display = 'none';
-document.getElementById('updateProductPrice').innerText = ''
-document.getElementById('ProductPrice').style.display = 'block'
-document.querySelector('.main-container').style.opacity = 1;
-document.getElementById('proqunanumber').innerText = 1
+ // for(var i = 0; i<getParseData.length; i++){
+  //   if (getCurrentUserObjINLs.Email == getParseData[i].Email) {
+    //     if (!getParseData[i].Order) {
+      //       getParseData[i].Order = [];
+      //     }
+      //     getParseData[i].Order.push(productObj);
+      //     window.localStorage.setItem("dataarr", JSON.stringify(getParseData));
+      //     alert('Oder Done ✔')
+      //   }
+      // }
+      
+      document.getElementById('adtoCard-container').style.display = 'none';
+      document.getElementById('updateProductPrice').innerText = ''
+      document.getElementById('ProductPrice').style.display = 'block'
+      document.querySelector('.main-container').style.opacity = 1;
+      document.getElementById('proqunanumber').innerText = 1
+      alert('Add to Card Sucessful');
 
 }
 
@@ -621,6 +621,23 @@ function Purchase(){
         `
      }
 
+  var getOrders = JSON.parse(window.localStorage.getItem('Orders'));
+  var table = document.getElementById('Order-table');
+
+  for(var i = 0; i<getOrders.length; i++){
+    table.innerHTML += `
+      <tr> 
+        <td> ${getOrders[i].id} </td>
+        <td> ${getOrders[i].ProName} </td>
+        <td> ${getOrders[i].ProPrice} </td>
+        <td> ${getOrders[i].ProQuanti} </td>
+      </tr>
+    `
+    document.getElementById('msg').innerHTML = 'Order List'
+    
+  }
+
+
 }
     
   function DeleteUser(e){
@@ -640,3 +657,30 @@ function Purchase(){
       }
       
     }
+
+function dashboardUserData(){
+  document.querySelector('.rs2-second-line').style.display = 'block';
+  document.querySelector('.right-section3').style.display = 'none';
+  document.getElementById('msg').innerHTML = 'Users List'
+
+  // var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
+  //     var table = document.getElementById('table');
+  //    for(var i = 0; i<UserData.length; i++){
+  //       table.innerHTML += `
+  //         <tr> 
+  //           <td class = 'sno'> ${i + 1} </td>
+  //           <td class = 'name'> ${UserData[i].namee} </td>
+  //           <td class = 'email'> ${UserData[i].Email} </td>
+  //           <td> <button onclick = 'DeleteUser(this)'> Delete </button> </td>
+  //         </tr>
+  //       `
+  //    }
+
+}    
+ 
+function orderDashboard(){
+  // var getOrders = JSON.parse(window.localStorage.getItem('Orders'))
+  document.querySelector('.rs2-second-line').style.display = 'none';
+  document.querySelector('.right-section3').style.display = 'block';
+
+}

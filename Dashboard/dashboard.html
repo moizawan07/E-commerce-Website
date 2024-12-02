@@ -34,7 +34,7 @@
                <p>MAIN</p>
              </div>
                 <ul class="first-ul">
-              <li id="firsli"><span class="icon"><i class="fa-solid fa-feather"></i></span><span class="text">Dashboard</span></li>
+              <li onclick="dashboardUserData()" id="firsli"><span class="icon"><i class="fa-solid fa-feather"></i></span><span class="text">Dashboard</span></li>
               <li><span class="icon"><i class="fa-brands fa-soundcloud"></i></span><span class="text">E-commerce</span></li>
               <li><span class="icon"><i class="fa-solid fa-leaf"></i></span><span class="text">Apps</span></li>
               <li><span class="icon"><i class="fa-solid fa-award"></i></span><span class="text">Widgets</span></li>
@@ -49,7 +49,7 @@
            <li><span class="icon"><i class="fa-solid fa-chart-simple"></i></span><span class="text">Charts</span></li>
            <li><span class="icon"><i class="fa-solid fa-table"></i></span><span class="text">Table</span></li>
            <li><span class="icon"><i class="fa-solid fa-file-invoice"></i></span><span class="text">Icons</span></li>
-           <li><span class="icon"><i class="fa-solid fa-street-view"></i></span><span class="text">Orders</span></li>
+           <li onclick="orderDashboard()"><span class="icon"><i class="fa-solid fa-street-view"></i></span><span class="text">Orders</span></li>
            <hr class="hr">
                </ul>
            <div class="first-haid" id="SECOND-HEAD">
@@ -103,7 +103,7 @@
              </div>
              <div class="right-section2">
                  <div class="rs2-first-line">
-                    <h2>User List</h2>
+                    <h2 id="msg">User List</h2>
                     <div class="butons">
                       <button>Filter</button>
                       <button>See All</button>
@@ -121,7 +121,17 @@
                       </tr>
                     </table>
                   </div>
-             </div>    
+                  <div class="right-section3">
+                      <table id="Order-table">
+                           <tr>
+                             <th>Id</th>
+                             <th>Name</th>
+                             <th>Price</th>
+                             <th>Quantity</th>
+                           </tr>
+                      </table>
+                  </div>    
+             </div>
         </div>
      </div>
       
