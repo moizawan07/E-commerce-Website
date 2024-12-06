@@ -12,7 +12,7 @@
 }
 body{
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 .main-container{
     width: 99.9%;
@@ -112,7 +112,7 @@ body{
     right: 10px;
     width: 150px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     color: rgb(69, 68, 68);
     font-size: 14px;
@@ -211,6 +211,9 @@ body{
     width: 78%;
     margin: auto;
     text-align: center;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 40%;
 }
 .fisrt-text-box h1{
     font-weight: 500;
@@ -233,6 +236,9 @@ body{
     width: 375px;
     height: 280px;
     transition: 0.5s ease-in;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
 }
 .s1-fbcard1 img{
     width: 100%;
@@ -278,6 +284,9 @@ body{
 .s2left{
     width: 44%;
     height: 100%;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
 }
 .s2left img{
     width: 100%;
@@ -290,6 +299,9 @@ body{
     color: black;
     padding-inline: 5%;
     padding-block: 13%;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
 }
 .s2right h2{
     color: #2d7500;
@@ -362,6 +374,19 @@ body{
 .s3card1{
     width: 270px;
     border: 1px solid white;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
+}
+@keyframes scroll {
+    from{
+        opacity: 0;
+        scale: 0.5;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
 }
 .s3card-text{
     padding-block: 55px;
@@ -405,6 +430,9 @@ body{
     height: 100%;
     margin-top: 70px;
    padding-inline: 20px;
+   animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
 }
 .s4left h2{
     color: #2d7500;
@@ -434,7 +462,11 @@ body{
 .s4right{
     width: 45%;
     height: 100%;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
 }
+    
 .s4right img{
     width: 100%;
     height: 100%;
@@ -453,6 +485,9 @@ body{
     justify-content: center;
     align-items: center;
     gap: 32px;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 25%;
 }
 .ficon{
     width: 45px;
@@ -484,6 +519,9 @@ body{
 
 .f-second-row {
     padding-top: 20px;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 15%;
 }
 .f-second-row ul{
     display: flex;
@@ -510,6 +548,9 @@ body{
     text-align: center;
     height: 55px;
     width: 100%;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 7%;
 }
 .fthird-row p{
     font-weight: 250;

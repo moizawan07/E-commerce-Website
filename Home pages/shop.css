@@ -13,6 +13,15 @@
 .main-container{
     width: 100%;
 }
+.background-blur{
+    width: 100%;
+    height: 300vh;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    position: absolute;
+    z-index: 999;
+   display: none;
+}
 /* Responsive navbar start */
 .responsive-navbar{
     z-index: 1;
@@ -150,84 +159,56 @@
     mix-blend-mode: multiply;
 }
 /* header section Css End here */
-/* Crousel section Start */
-
-.carousel-container {
+/* Sildebar Start */
+.slider-container {
     position: relative;
-    width: 90%;
-    /* max-width: 900px;  Set a max width */
-    /* height: 430px; */
+    /* max-width: 1200px; */
+    width: 98%;
+    height: 500px;
     margin: 20px auto;
     overflow: hidden;
-    /* border: 1px solid black; */
-}
-
-.carousel {
+  }
+  
+  .slider {
     display: flex;
-    border: 1px solid black;
-    height: 450px;
-    transition: transform 1s ease;
-}
-
-.carousel img {
-    width: 1200px;
-    /* width: 100%;  Make images responsive */
-    /* height: 100%; */
-}
-
-.bullets {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bullets {
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
-}
-
-.bullet {
-    width: 10px;
-    height: 10px;
+  }
+  
+  .bullet-btn {
+    width: 15px;
+    height: 15px;
     margin: 0 5px;
     border-radius: 50%;
-    background-color: white;
-    border: 2px solid white;
-    cursor: pointer;
-    opacity: 0.7;
-}
-
-.bullet.active {
     background-color: #fff;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  
+  .bullet-btn.active {
+    background-color: #007bff;
     opacity: 1;
-}
+  }
+  
+  .bullet-btn:hover {
+    opacity: 1;
+  }
+/* Sildebar End */
 
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    .carousel-container {
-        max-width: 100%;
-        /* height: 200px;  Adjust height for mobile */
-    }
-
-    .carousel img {
-        width: 100%;
-        height: auto;
-    }
-
-    .bullets {
-        bottom: 5px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .carousel-container {
-        max-width: 100%;
-        height: 150px;  /* Further reduce height on very small screens */
-    }
-
-    .bullets {
-        bottom: 5px;
-    }
-}
-/* Crousel section End */
 /* Hero section Css Start here */
 .hero-section-main{
     margin-top: 10px;
@@ -284,10 +265,26 @@
     color: #2d7500;
     text-transform: uppercase;
     font-weight: 600;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
+}
+@keyframes scroll {
+    from{
+        opacity: 0;
+        scale: 0.5;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
 }
 .s2fistbox h1{
     font-size: 45px;
     text-align: center;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
 }
 .s2select-box-main{
     margin-top: 50px;
@@ -303,6 +300,9 @@
     height: 230px;
     padding-top: 30px;
     text-align: center;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
     /* border: 1px solid black; */
 }
 .s2selectbox-card1 img{
@@ -378,11 +378,17 @@
     width: 250px;
     height: 300px;
     /* border: 1px double rgb(112, 111, 111); */
-    border-radius: 10px;
+    border-radius: 5px;
     padding-left: 20px;
     padding-bottom: 30px;
     position: relative;
-    box-shadow: 0px 0px 4px #5e0115;
+    /* box-shadow: 0px 0px 4px #d44a00; */
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
+  &:hover{
+    box-shadow: 0px 0px 4px #ff5900;
+  }  
 }
 .s2fruits-card img{
     width: 70%;
@@ -490,7 +496,9 @@ s::before{
     padding-bottom: 50px;
     box-shadow: 0px 0px 3px black;
     border-radius: 5px;
+    transition: 1s ease-in-out;
 }
+
 .close-icon{
     font-size: 25px;
     position: absolute;
@@ -654,6 +662,9 @@ b{
     justify-content: center;
     align-items: center;
     gap: 32px;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 30%;
 }
 .ficon{
     width: 45px;
@@ -685,6 +696,9 @@ b{
 
 .f-second-row {
     padding-top: 25px;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 15%;
 }
 .f-second-row ul{
     display: flex;
@@ -711,6 +725,9 @@ b{
     text-align: center;
     height: 55px;
     width: 100%;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 7%;
 }
 .fthird-row p{
     font-weight: 250;
@@ -783,6 +800,13 @@ b{
     .hero-left-main p{
         font-size: 14px;
     }
+    .add-tocard-con{
+        width: 330px;
+        height: auto;
+        min-height: 60vh;
+        top: 15%;
+        right: 5%;
+      }
 }
 @media (max-width:545px){
     .hero-left-main{
@@ -794,8 +818,22 @@ b{
     .hero-left-main p{
         font-size: 12px;
     }   
+    .add-tocard-con{
+        width: 330px;
+        height: auto;
+        min-height: 50vh;
+        top: 15%;
+        right: 5%;
+      }
 }
 @media(max-width:480px){
+    .add-tocard-con{
+        width: 330px;
+        height: auto;
+        min-height: 50vh;
+        top: 15%;
+        right: 5%;
+      }
     .hero-left-main{
         width: 100%;
         margin-top: 20px;
@@ -881,6 +919,13 @@ b{
       } 
       .footer{
           padding-top: 30px;
+      }
+      .add-tocard-con{
+        width: 330px;
+        height: auto;
+        min-height: 50vh;
+        top: 15%;
+        right: 5%;
       }
     
 }

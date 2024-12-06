@@ -23,33 +23,68 @@ function signUp(){
              }
         }
           if(chekemailans == false || userObj.Email == 'Moizadmin@gmail.com'){
-            alert('you cant login by this email')
+            // alert('you cant login by this email')
+            Swal.fire({                                          /// Sweet Alert
+              icon: "error",
+              title: "Error..",
+              text: "This Email is Reserved",
+            });
           }
           else{
-            alert('Sign Up Sucessful ✔')
-            dataArr.push(userObj)
-            var stringyformat = JSON.stringify(dataArr) 
-            window.localStorage.setItem('dataarr', stringyformat)
-            window.location.href = 'login page/login.html'
+            // alert('Sign Up Sucessful ✔')
+            Swal.fire({
+              title: "Congrats!",
+              text: "Sign Up Sucessfully done",
+              icon: "success"
+            }).then( () => {                                       // then ka keyword ais liye use kiya ky condition true hoa he ya alert se phla he redirect kr rha tha dosre page pa               
+              dataArr.push(userObj)
+              var stringyformat = JSON.stringify(dataArr) 
+              window.localStorage.setItem('dataarr', stringyformat)
+              window.location.href = 'login page/login.html'
+          })   
+            // dataArr.push(userObj)
+            // var stringyformat = JSON.stringify(dataArr) 
+            // window.localStorage.setItem('dataarr', stringyformat)
+            // window.location.href = 'login page/login.html'
           }
         
     }
     else{
        if(userObj.Email != 'Moizadmin@gmail.com'){
-        alert('Sign Up Sucessful ✔')
-        dataArr.push(userObj)
-        var stringyformat = JSON.stringify(dataArr) 
-        window.localStorage.setItem('dataarr', stringyformat)
-         window.location.href = 'login page/login.html'
+        // alert('Sign Up Sucessful ✔')
+        Swal.fire({
+          title: "Congrats!",
+          text: "Sign Up Sucessfully done",
+          icon: "success"
+        }).then( () => {                                       // then ka keyword ais liye use kiya ky condition true hoa he ya alert se phla he redirect kr rha tha dosre page pa               
+          dataArr.push(userObj)
+          var stringyformat = JSON.stringify(dataArr) 
+          window.localStorage.setItem('dataarr', stringyformat)
+          window.location.href = 'login page/login.html'
+      })   
+        // dataArr.push(userObj)
+        // var stringyformat = JSON.stringify(dataArr) 
+        // window.localStorage.setItem('dataarr', stringyformat)
+        //  window.location.href = 'login page/login.html'
     }
     else{
-      alert('you cant login by this email')
+      // alert('you cant login by this email')
+      Swal.fire({                                          /// Sweet Alert
+        icon: "error",
+        title: "Error..",
+        text: "This Email is Reserved",
+      });
     }
     
 }
 }
 else{
-    alert('fill out the form info')
+    // alert('fill out the form info')
+    Swal.fire({                                          /// Sweet Alert
+      icon: "error",
+      title: "Error..",
+      text: "Fill Out the form",
+    });
 }
 }
 
@@ -67,17 +102,33 @@ function logIn(){
          window.location.href = '../Dashboard/dashboard.html'
       }
     if(!getdatals){                  //  Check User  Signup or Not
-        alert('go and signUp first')
-        window.location.href = '../index.html'
+        // alert('go and signUp first')
+        Swal.fire({                                          /// Sweet Alert
+          icon: "error",
+          title: "Error..",
+          text: "Go & signUp",
+        }).then( () => {window.location.href = '../index.html'})
+        // window.location.href = '../index.html'
     }
     var decion = false;
     for(var i = 0; i<getdatals.length; i++){              
       if(getdatals[i].Email == email2 && getdatals[i].password == password2){           // Check User Enter a Coorect data
-        alert('welcome to the home page')
-        window.localStorage.setItem("currentUserObj", JSON.stringify(getdatals[i])); 
-        window.location.href = '../Home pages/home.html'
-       decion = true
-       break;
+        // alert('welcome to the home page')
+        Swal.fire({
+          title: "Congrats!",
+          text: "Welcome to the home page",
+          icon: "success",
+        })
+        .then( () => {
+          window.localStorage.setItem("currentUserObj", JSON.stringify(getdatals[i])); 
+          window.location.href = '../Home pages/home.html'
+        });
+        decion = true
+        break;
+        // window.localStorage.setItem("currentUserObj", JSON.stringify(getdatals[i])); 
+        // window.location.href = '../Home pages/home.html'
+      //  decion = true
+      //  break;
      }
      else{
        decion = false  
@@ -86,18 +137,64 @@ function logIn(){
       if(desh == 'Yes'){
         decion = true;
        } 
-  if(decion == false){       // User Incoorecrt Data Condition
-    alert('Insert a Correct data')
+  if(decion == false){                         // User Incoorecrt Data Condition
+    // alert('Insert a Correct data');
+    Swal.fire({                                          /// Sweet Alert
+      icon: "error",
+      title: "Error..",
+      text: "Insert a Correct data",
+    });
   }
 }
 
-// Crousel Code Start
+// Silderbar Code Start
+ if(window.location.href.indexOf('shop') != -1){
+  let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const bullets = document.querySelectorAll('.bullet-btn');
+const totalSlides = slides.length;
 
-// Crousel Code End
+function showSlide(index) {
+  if (index >= totalSlides) {
+    currentSlide = 0;
+  } else if (index < 0) {
+    currentSlide = totalSlides - 1;
+  } else {
+    currentSlide = index;
+  }
 
+  // Move the slider to the correct slide
+  const slider = document.querySelector('.slider');
+  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+  // Update the active bullet
+  bullets.forEach(bullet => bullet.classList.remove('active'));
+  bullets[currentSlide].classList.add('active');
+}
+
+// Automatic slide change every 3 seconds
+setInterval(() => {
+  showSlide(currentSlide + 1);
+}, 3000);
+
+// Bullet navigation
+bullets.forEach(bullet => {
+  bullet.addEventListener('click', (e) => {
+    const index = parseInt(e.target.dataset.slide);
+    showSlide(index);
+  });
+});
+
+// Initialize the first slide
+showSlide(currentSlide);
+
+ }
+// Silderbar Code End
+
+  // User SelectProduct
 function ProducrtsSea(e){
   var categoryName = e.childNodes[3].innerHTML;
-  console.log(categoryName )
+  // console.log(categoryName )
   
     if(categoryName == 'Fruits'){
       document.getElementById('Fruitsmaincon').style.display = 'flex'
@@ -165,8 +262,11 @@ function navOf(){
 // Product Select Function
 
 function productSelect(e){
-  document.querySelector('.main-container').style.opacity = 0.5;
+  // document.querySelector('.main-container').style.opacity = 0.5;
+  document.querySelector('.background-blur').style.display = 'block'     // Background blur ON krwa rha
+
   document.getElementById('adtoCard-container').style.display = 'block';
+  document.getElementById('adtoCard-container').style.zIndex = '10000';
   var getProductCardId = e.parentNode.getAttribute('id');    // Main Card Get id
   var productImgGet = e.parentNode.childNodes[1];
   var productNameGet = e.parentNode.childNodes[3];
@@ -397,6 +497,8 @@ function adtocardclose(e){
   document.getElementById('updateProductPrice').innerText = ''
   document.getElementById('ProductPrice').style.display = 'block'
   document.getElementById('proqunanumber').innerText = 1;
+
+  document.querySelector('.background-blur').style.display = 'none'     // Background blur krwa rha
 }
 
 var addtocardArr = JSON.parse(window.localStorage.getItem('addtoCardArr')) || [];
@@ -435,9 +537,16 @@ function Addtocardclicked(e){
       document.getElementById('adtoCard-container').style.display = 'none';
       document.getElementById('updateProductPrice').innerText = ''
       document.getElementById('ProductPrice').style.display = 'block'
-      document.querySelector('.main-container').style.opacity = 1;
       document.getElementById('proqunanumber').innerText = 1
-      alert('Add to Card Sucessful');
+      // document.querySelector('.main-container').style.opacity = 1;
+     document.querySelector('.background-blur').style.display = 'none'     // Background blur OFF krwa rha
+
+      // alert('Add to Card Sucessful');
+      Swal.fire({
+        title: "Yahoo..!",
+        text: "Add to Card Sucessfully done",
+        icon: "success"
+      });
 
 }
 
@@ -448,16 +557,7 @@ if(window.location.href.indexOf('home.html') != -1){
   var profileNameSet = document.querySelectorAll('.proName');
     profileNameSet[0].innerText = getNameLs;
     profileNameSet[1].innerText = getNameLs;
-  }
-  // if(window.location.href.indexOf('shop.html') != -1){
-  //  var getNameLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
-  //    getNameLs = getNameLs.namee
-  //    var profileNameSet2 = document.querySelectorAll('.SProname');
-  //    profileNameSet2[0].innerText = getNameLs;
-  //    profileNameSet2[1].innerText = getNameLs;
-  //   var img1 = document.getElementById('img1');  
-  //   var img2 = document.getElementById('img2');  
-  // } 
+}
 
 function ImgSelect(){
   var img = document.getElementById('Image');
@@ -525,8 +625,13 @@ function removeAddToCard(e){
          updateArr.push(addtoCardArr[i])
       }
     }
-    e.productName = e.parentNode.parentNode.remove()
+    Swal.fire({                                          /// Sweet Alert
+      icon: "error",
+      title: "Alert..",
+      text: "Remove from your card",
+    }).then(()=> {e.productName = e.parentNode.parentNode.remove()})
     window.localStorage.setItem('addtoCardArr', JSON.stringify(updateArr));
+   
 
   var getAddtoCardProduct = JSON.parse(window.localStorage.getItem("addtoCardArr"));
 
@@ -556,10 +661,11 @@ function removeAddToCard(e){
   else{
     document.getElementById('msg').style.display = 'block'
   }
+
 }
 
 function Purchase(){
-    alert('Order Done');
+    // alert('Order Done');
     var orders =  JSON.parse(window.localStorage.getItem('Orders')) ||  [];
     var getProductsCistomer = JSON.parse(window.localStorage.getItem('addtoCardArr'))
    
@@ -570,41 +676,30 @@ function Purchase(){
     window.localStorage.setItem('addtoCardArr',JSON.stringify(getProductsCistomer));
     window.localStorage.setItem('Orders',JSON.stringify(orders));
 
-    document.getElementById('msg').style.display = 'block'
     var st = document.querySelectorAll('.allLine-flex')
-    for(var j = 0; j<st.length; j++){
-        st[j].remove()
-    }
-   document.getElementById('discountafter').innerHTML = 0;
-   document.getElementById('discount').innerHTML = 0;
-   document.getElementById('Total').innerHTML = 0;
+    Swal.fire({                                          /// Sweet Alert
+      icon: "success",
+      title: "Yahooo..",
+      text: "Order Sucessfully Done",
+    }).then(()=> {
+      document.getElementById('msg').style.display = 'block'
+      for(var j = 0; j<st.length; j++){
+          st[j].remove()
+      }
+       document.getElementById('discountafter').innerHTML = 0;
+       document.getElementById('discount').innerHTML = 0;
+       document.getElementById('Total').innerHTML = 0;
+    })  
+  //   document.getElementById('msg').style.display = 'block'
+  //   for(var j = 0; j<st.length; j++){
+  //       st[j].remove()
+  //   }
+  //  document.getElementById('discountafter').innerHTML = 0;
+  //  document.getElementById('discount').innerHTML = 0;
+  //  document.getElementById('Total').innerHTML = 0;
 
     
 }
-// function CustomerDeleteProduct(e){
-//   var productName = e.parentNode.childNodes[3].innerText;
-//   console.log(productName);
-//   var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
-//   var getData = window.localStorage.getItem("dataarr");
-//   var getParseData = JSON.parse(getData);
-  
-//   for(var i = 0; i<getParseData.length; i++){
-//     if(getParseData[i].Email == getCurrentUserObjINLs.Email){
-//          for(var j = 0; j < getParseData[i].Order.length;  j++){
-//            if(productName == getParseData[i].Order[j].ProName){
-//              getParseData[i].Order.splice(j,1);
-//              //  console.log(getParseData);
-//              window.localStorage.setItem("dataarr", JSON.stringify(getParseData));
-//              e.parentNode.style.display = 'none'
-//             }
-//             // console.log(j);
-//           }
-//       }
-//     } 
-   
-    
-// }
-
 
   // Dashboard Start
   if(window.location.href.indexOf('dashboard') != -1){
@@ -684,3 +779,24 @@ function orderDashboard(){
   document.querySelector('.right-section3').style.display = 'block';
 
 }
+//  function filterDashboard(){
+  
+//   var inputValue = document.getElementById('Serching').value;
+//    console.log(inputValue);
+//   var table;
+//      if(document.querySelector('.rs2-second-line').style.display == 'block' || document.querySelector('.right-section3').style.display =='block')
+//      {
+//       //  table = document.getElementById('table');
+//       console.log(document.querySelector('.right-section3') || document.querySelector('.rs2-second-line'));
+      
+//       }
+//     //  console.log(table);
+     
+//   //  var tr = table.getElementsByTagName('tr')
+  
+//   //  for(var i = 0; i<tr.length; i++){
+//   //    console.log(tr);
+     
+//   //  }
+   
+//  }

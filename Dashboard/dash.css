@@ -235,8 +235,8 @@ tr button{
 .sno{
     color: #4239E5;
 }
-.name{
-    /* color: #F49E1A; */
+#ordeli,#firsli{
+    cursor: pointer;
 }
 
 .right-section3{
