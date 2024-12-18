@@ -12,15 +12,15 @@
 }
 body{
     width: 100%;
-    /* border: 1px solid black; */
+    border: 1px solid black;
 }
 .main-container{
-    width: 99.9%;
+    width: 99.85%;
 }
 
 /* Responsive navbar start */
 .responsive-navbar{
-    z-index: 1;
+    z-index: 999;
     display: none;
     width: 50%;
     height: 100vh;
@@ -68,6 +68,7 @@ body{
 /* Responsive navbar End */
 /* header section Css Start here */
 .header{
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -703,7 +704,20 @@ body{
         width: 180px;
     }
      .responsive-navbar{
-        width: 100%;
+        width: 70%;
+    }
+    .profilenavbar {
+        margin-left: 40px;
+        width: 50px;
+        height: 50px;
+    }
+    .proName{
+        font-size: 14px;
+        margin-left: 17px;
+    }
+    .s1-fbcard1 {
+        width: 365px;
+        height: 280px;
     }
     .f-second-row ul{
       gap: 25px;

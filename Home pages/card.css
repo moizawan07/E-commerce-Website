@@ -216,12 +216,12 @@
     padding-bottom: 50px;
 }
 .s1left{
-    width: 60%;
-    min-height: 50vh;
-    padding-block: 25px;
+    width: 65%;
+    min-height: 60vh;
+    padding-block: 35px;
     border-radius: 5px;
     /* border: 1px solid rgb(110, 110, 110); */
-    box-shadow: inset 1px 1px 4px #0a72f1 ,inset -1px -1px #0d78fc;
+    box-shadow: inset 1px 1px 2px #0a72f1 ,inset -1px -1px 2px #0d78fc;
     padding-inline: 4px;
 }
 .s1right{
@@ -309,14 +309,14 @@ hr{
     justify-content: space-around;
     align-items: center;
     color: grey;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(189, 183, 183);
     padding-bottom: 10px;
 }
 #msg{
     text-align: center;
     color: grey;
     position: relative;
-    top: 105px;
+    top: 125px;
 }
 .p{
     position: relative;
@@ -381,12 +381,105 @@ hr{
     font-weight: 500;
 }
 
+.footer{
+    margin-top: 50px;
+    width: 100%;
+    padding-top: 50px;
+    background-color: #111111;
+}
+.first-row-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 30%;
+}
+.ficon{
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    text-align: center;  
+    align-content: center;
+    border-radius: 50%;
+}
+.ficon i{
+    transition: 0.5s ease-in;
+    font-size: 22px;
+}
+.ficon:hover.ficon i{
+    font-size: 30px;
+}
+.ficon:first-child:hover,.ficon:nth-child(3):hover{
+    color: cornflowerblue;
+}
+.ficon:nth-child(2):hover{
+    color: rgb(240, 22, 58);
+}
+.ficon:nth-child(4):hover{
+    color: rgb(235, 168, 21);
+}
+.ficon:nth-child(5):hover{
+    color: rgb(233, 34, 12);
+}
+
+.f-second-row {
+    padding-top: 25px;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 15%;
+}
+.f-second-row ul{
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+.f-second-row ul li a{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+.f-second-row ul li:hover{
+    font-size: 19px;
+    transform: translateY(-9px);
+    transition: 0.4s ease-in;
+}
+.f-second-row ul li a:hover{
+    color: #6db73f;
+}
+.fthird-row{
+    margin-top: 30px;
+    background-color: black;
+    align-content: center;
+    color: white;
+    text-align: center;
+    height: 55px;
+    width: 100%;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range: 0 7%;
+}
+.fthird-row p{
+    font-weight: 250;
+}
+/* Footer End */
 
 
 
 
 
 
+@media(max-width:1000px){
+    .section-1-main{
+        flex-direction: column;
+    }
+    .s1left{
+        width: 90%;
+    }
+    .s1right{
+        width: 50%;
+    }
+}
 
 @media(max-width:1070px){
     .logo{
@@ -428,9 +521,90 @@ hr{
         display: none;
         /* right: -100%; */
     }
+    .Img-and-description-main{
+        width: 200px;
+    }
+    .p{
+        right: 0;
+    }
 }
+
 @media(max-width:500px){
+
     .responsive-navbar{
         width: 60%;
     }
+    .section-1-main{
+        padding-inline: 4px;
+    }
+    .s1left{
+        width: 100%;
+    }
+    .sl-firstline-main{
+        font-size: 12px;
+        justify-content: space-between;
+    }
+    .Img-and-description-main{
+        width: 150px;
+    }
+    .Img-and-description-main img{
+        width: 55px;
+        height: 50px;
+    }
+    .allLine-flex{
+        font-size: 12px;
+    }
+    .delete {
+        padding-inline: 5px;
+        padding-block: 2px;
+        font-size: 10px;
+    }
+    .heart{
+       padding-inline: 4px;
+       padding-block: 2px;
+       font-size: 10px;
+       margin-right: 0;
+    }
+    .remove-btns{
+        right: 0;
+    }
+    .Quantity,.Price{
+        font-size: 14px;
+        margin-top: 0;
+    }
+    .Quantity{
+        margin-left: 14px;
+    }
+    .s1right{
+        width: 90%;
+    }
+    .Pr {
+        position: relative;
+        right: 35px;
+    }
+    .Img-and-description-main h3{
+        font-size: 12px;
+    }
+    .f-second-row ul{
+        gap: 25px;
+      }
+      .ficon{
+          width: 35px;
+          height: 35px;
+      }
+      .ficon i{
+          font-size: 18px;
+      }
+      .fthird-row p{
+          font-size: 14px;
+      }
+      .f-second-row{
+          padding-top: 30px;
+      }
+      .fthird-row{
+          margin-top: 30px;
+      } 
+      .footer{
+          padding-top: 30px;
+      }
 }

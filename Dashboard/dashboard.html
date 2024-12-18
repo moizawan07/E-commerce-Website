@@ -10,9 +10,22 @@
 <body>
    <div class="container">
      <div class="header">
-        <div class="logo">
-          <h2><span>M</span>oiz <span>A</span>hmed</h2>
-        </div>
+      <div class="mini-screen">
+          <div class="logo">
+             <h2><span>M</span>oiz <span>A</span>hmed</h2>
+           </div>
+           <div class="settings" id="rem">
+            <i class="fa-solid fa-sun"></i>
+            <!-- <i id="main" class="fa-solid fa-grip"></i> -->
+            <!-- <i id="down" class="fa-solid fa-grip"></i> -->
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+            <i class="fa-solid fa-bell"></i>
+            <div class="admin-img">
+              <img src="../Images/admin-img.png" alt="">
+            </div>
+          </div>
+      </div>
+      <i id="bar" onclick="dashboardSidebar()" class="fa-solid fa-bars"></i>
         <div class="searchbar">
            <input type="text" onkeyup="(filterDashboard())"  id="Serching" placeholder="Serch..">
            <i class="fa-solid fa-magnifying-glass"></i>

@@ -274,7 +274,7 @@ function productSelect(e){
   var productOnlyPrice = productPriceGet.slice(4);
   var productDetailsHalf = e.parentNode.childNodes[7];
   var productDetailsFull = e.parentNode.childNodes[9];
-  console.log(productDetailsFull);
+  // console.log(productDetailsFull);
   
 
   var ProductCardIdSet = document.querySelector('.product-card')   // Main Card Set id
@@ -289,8 +289,14 @@ function productSelect(e){
       ProductDetailsHalf.innerHTML = productDetailsHalf.innerHTML;
       var ProductDetailsFull = document.getElementById('Productdetailsfull');
       ProductDetailsFull.innerHTML = productDetailsFull.innerHTML                   
-  console.log(ProductPriceSet);
-  
+  // console.log(ProductPriceSet);
+            //
+   var price =  e.parentNode.childNodes[5].childNodes[0].nodeValue;
+   var finalP =  parseInt(price.slice(3))
+    document.getElementById('updateProductPrice').innerText = finalP
+  //  console.log(finalP);
+   
+            
 
 // var imgcheck = document.getElementById('adtoCard-container');
 // var check = imgcheck.getElementsByTagName('img');
@@ -406,9 +412,6 @@ function viewLess(e){
 
 
 function Plus(e){
-  // console.log("e" + e);
-  // console.log(e.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1]);  
-  
   var numberget = document.getElementById('proqunanumber').innerText;
    ++numberget
   //  console.log(numberget);
@@ -423,6 +426,7 @@ function Plus(e){
      document.getElementById('updateProductPrice').setAttribute('class','top');
     //  prodPriceget.setAttribute('class','opacity')                              // Old Price remove
     document.getElementById('ProductPrice').style.display = 'none'
+    document.getElementById('updateProductPrice').style.display = 'block'   // New Price Show
     // console.log(prodPriceget);
     
 
@@ -498,7 +502,9 @@ function adtocardclose(e){
   document.getElementById('ProductPrice').style.display = 'block'
   document.getElementById('proqunanumber').innerText = 1;
 
-  document.querySelector('.background-blur').style.display = 'none'     // Background blur krwa rha
+  document.querySelector('.background-blur').style.display = 'none'  // Background blur krwa rha
+  document.getElementById('updateProductPrice').style.display = 'none'   // New Price Show
+
 }
 
 var addtocardArr = JSON.parse(window.localStorage.getItem('addtoCardArr')) || [];
@@ -510,9 +516,11 @@ function Addtocardclicked(e){
  var productId =  e.parentNode.parentNode.childNodes[3].getAttribute('id');
  var productImgSrc = e.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].src;
  var productName = e.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[0].nodeValue;
- var productPrice = e.parentNode.parentNode.childNodes[3].childNodes[7].childNodes[1].childNodes[0].nodeValue;
+ var productPrice = e.parentNode.parentNode.childNodes[3].childNodes[7].childNodes[3].childNodes[0].nodeValue;
  var productQuanti = e.parentNode.parentNode.childNodes[3].childNodes[11].childNodes[0].nodeValue;
-  // console.log(productImgSrc);
+ document.getElementById('updateProductPrice').style.display = 'none'   // New Price Show
+
+  // console.log(productPrice);
 
    addtocardArr.push({
     id: productId,
@@ -774,29 +782,38 @@ function dashboardUserData(){
 }    
  
 function orderDashboard(){
-  // var getOrders = JSON.parse(window.localStorage.getItem('Orders'))
   document.querySelector('.rs2-second-line').style.display = 'none';
   document.querySelector('.right-section3').style.display = 'block';
-
 }
-//  function filterDashboard(){
+
+function dashboardSidebar(){
+  var con = document.querySelector('.left-main-con');
+  var con2 = document.querySelector('.right-main-con');
+ var final = window.getComputedStyle(con)
+  if(final.display == 'block'){
+    con.style.display = 'none'
+    con2.style.width = '100%'
+  }
+  else{
+    con.style.display = 'block'
+    con2.style.width = '90%'
+
+  }
   
-//   var inputValue = document.getElementById('Serching').value;
-//    console.log(inputValue);
-//   var table;
-//      if(document.querySelector('.rs2-second-line').style.display == 'block' || document.querySelector('.right-section3').style.display =='block')
-//      {
-//       //  table = document.getElementById('table');
-//       console.log(document.querySelector('.right-section3') || document.querySelector('.rs2-second-line'));
-      
-//       }
-//     //  console.log(table);
-     
-//   //  var tr = table.getElementsByTagName('tr')
   
-//   //  for(var i = 0; i<tr.length; i++){
-//   //    console.log(tr);
-     
-//   //  }
-   
-//  }
+}
+ function filterDashboard(){
+  var inputValue = document.getElementById('Serching');
+ var s2 =  document.querySelector('.rs2-second-line');
+ var s3 =  document.querySelector('.right-section3');
+ var tableSearching ;
+
+  if(window.getComputedStyle(s2).display == 'block'){
+    tableSearching = document.getElementById('table');
+  }
+  else{
+     tableSearching = document.getElementById('Order-table');
+  }
+  console.log(tableSearching);
+  
+ }

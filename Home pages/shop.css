@@ -162,7 +162,6 @@
 /* Sildebar Start */
 .slider-container {
     position: relative;
-    /* max-width: 1200px; */
     width: 98%;
     height: 500px;
     margin: 20px auto;
@@ -733,7 +732,9 @@ b{
     font-weight: 250;
 }
 /* Footer End */
-
+#updateProductPrice{
+    display: none;
+}
 
 
 @media(max-width:1070px){
@@ -896,7 +897,7 @@ b{
         margin-left: 3px;
     }
     .responsive-navbar{
-        width: 100%;
+        width: 60%;
     }
     .f-second-row ul{
         gap: 25px;
@@ -924,8 +925,11 @@ b{
         width: 330px;
         height: auto;
         min-height: 50vh;
-        top: 15%;
-        right: 5%;
+        top: 8%;
+        right: 6%;
+      }
+      .slider-container{
+        height: auto;
       }
     
 }

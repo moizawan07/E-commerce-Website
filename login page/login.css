@@ -14,9 +14,13 @@ body{
 input{
     width: 100%;
     border: none;
-    border-bottom: 1px solid rgb(144, 141, 141);
+    border-bottom: 0.9px solid rgb(239, 122, 5);
     padding-left: 5px;
     padding-bottom: 5px;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    &::placeholder{
+        color: rgb(100, 99, 99);
+    }
 }
 button{
     width: 100%;
@@ -29,11 +33,11 @@ button{
     color: rgb(37, 37, 37);
 }
 .container{
-    width: 390px;
+    width: 430px;
     margin: 90px  auto;
     background-color: #fff;
-    box-shadow: 0px 0px 3px black;
-    border-radius: 12px;
+    box-shadow: 0px 0px 3px grey;
+    border-radius: 9px;
    padding-block: 30px;
    padding-inline: 20px;
 }
@@ -42,16 +46,17 @@ button{
     font-size: 26px;
     font-weight: 700;
     margin-left: 10px;
+    color: rgb(254, 104, 50);
 }
 .first-heading p {
     margin-top: 2px;
-    color: rgb(49, 49, 49);
+    color: rgb(77, 76, 76);
     line-height: 17px;
     font-size: 13px;
-    margin-left: 12px;
+    margin-left: 15px;
 }
 .second-inputs{
-    width: 85%;
+    width: 90%;
     margin: auto;
     padding-top: 40px;
     display: flex;
@@ -64,7 +69,15 @@ button{
     margin: auto;
 }
 .third-butons button{
-    background-color: #F7D448;
+    background-color: rgb(251, 109, 57);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    &:hover{
+        background-color: transparent;
+        border: 2px solid coral;
+        color: black;
+    }
 }
 .third-butons p {
     margin-top: 15px;
@@ -72,7 +85,14 @@ button{
     text-align: center;
 }
 .third-butons p a{
-    color: black;
+    color: rgb(254, 104, 50);
     text-decoration: none;
     font-weight: 500;
+}
+
+@media(max-width:500px){
+    .container{
+        width: 350px;
+        padding-inline: 10px;
+    }
 }
