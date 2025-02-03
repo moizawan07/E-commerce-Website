@@ -331,9 +331,9 @@ hr{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: -1px -1px 4px rgb(141, 140, 140);
+    /* box-shadow: -1px -1px 4px rgb(141, 140, 140); */
     margin-top: 10px;
-    border-bottom: 1px solid rgb(3, 97, 3);
+    border-bottom: 0.99px solid rgb(3, 97, 3);
 }
 
 .Img-and-description-main{
@@ -538,7 +538,8 @@ hr{
         padding-inline: 4px;
     }
     .s1left{
-        width: 100%;
+        min-height: 350px;
+         width: 95%; 
     }
     .sl-firstline-main{
         font-size: 12px;
@@ -548,8 +549,8 @@ hr{
         width: 150px;
     }
     .Img-and-description-main img{
-        width: 55px;
-        height: 50px;
+        width: 45px;
+        height: 40px;
     }
     .allLine-flex{
         font-size: 12px;
@@ -557,12 +558,12 @@ hr{
     .delete {
         padding-inline: 5px;
         padding-block: 2px;
-        font-size: 10px;
+        font-size: 8px;
     }
     .heart{
        padding-inline: 4px;
        padding-block: 2px;
-       font-size: 10px;
+       font-size: 8px;
        margin-right: 0;
     }
     .remove-btns{

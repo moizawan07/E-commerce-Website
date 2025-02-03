@@ -22,7 +22,7 @@ function signUp(){
              break;
              }
         }
-          if(chekemailans == false || userObj.Email == 'Moizadmin@gmail.com'){
+          if(chekemailans == false || userObj.Email == 'admin@gmail.com'){
             // alert('you cant login by this email')
             Swal.fire({                                          /// Sweet Alert
               icon: "error",
@@ -50,7 +50,7 @@ function signUp(){
         
     }
     else{
-       if(userObj.Email != 'Moizadmin@gmail.com'){
+       if(userObj.Email != 'admin@gmail.com'){
         // alert('Sign Up Sucessful ✔')
         Swal.fire({
           title: "Congrats!",
@@ -94,13 +94,14 @@ function logIn(){
     var email2 = document.getElementById('email2').value;
     var password2 = document.getElementById('password2').value;
     var getdatals = JSON.parse(window.localStorage.getItem('dataarr'))
-    console.log(getdatals);
+    // console.log(getdatals);
 
     var desh = 'No'       
-    if(email2 == 'Moizadmin@gmail.com' && password2 == 'moiz45'){          // Admin Condition
+    if(email2 == 'admin@gmail.com' && password2 == 'admin123'){          // Admin Condition
         desh = 'Yes'
          window.location.href = '../Dashboard/dashboard.html'
       }
+    else{   // agr user admin na hu to us ka liye baqi sare conditions 
     if(!getdatals){                  //  Check User  Signup or Not
         // alert('go and signUp first')
         Swal.fire({                                          /// Sweet Alert
@@ -145,7 +146,7 @@ function logIn(){
       text: "Insert a Correct data",
     });
   }
-}
+}}
 
 // Silderbar Code Start
  if(window.location.href.indexOf('shop') != -1){
@@ -559,13 +560,15 @@ function Addtocardclicked(e){
 }
 
 
-if(window.location.href.indexOf('home.html') != -1){
-  var getNameLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
-     getNameLs = getNameLs.namee
-  var profileNameSet = document.querySelectorAll('.proName');
-    profileNameSet[0].innerText = getNameLs;
-    profileNameSet[1].innerText = getNameLs;
-}
+// if(window.location.href.indexOf('home') != -1){
+//   console.log(window.location.href);
+  
+//   var getNameLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
+//      getNameLs = getNameLs.namee
+//   var profileNameSet = document.querySelectorAll('.proName');
+//     profileNameSet[0].innerText = getNameLs;
+//     profileNameSet[1].innerText = getNameLs;
+// }
 
 function ImgSelect(){
   var img = document.getElementById('Image');
@@ -734,6 +737,7 @@ function Purchase(){
         <td> ${getOrders[i].ProName} </td>
         <td> ${getOrders[i].ProPrice} </td>
         <td> ${getOrders[i].ProQuanti} </td>
+        <td onClick ='orderRemove(this)'> <i class="fa-solid fa-trash orderRemove"></i></td>
       </tr>
     `
     document.getElementById('msg').innerHTML = 'Order List'
@@ -759,7 +763,29 @@ function Purchase(){
         }
       }
       
+}
+
+function orderRemove(e){
+ let table = document.getElementById('Order-table')
+ let tr = table.getElementsByTagName('tr') 
+ 
+ let ordersArr = JSON.parse(window.localStorage.getItem('Orders'))
+ let removeId = e.parentNode.childNodes[1].innerText
+ 
+ let afterRemoveItemArr = []
+ for(let i = 0; i<ordersArr.length; i++){
+
+    if(ordersArr[i].id != removeId){
+      afterRemoveItemArr.push(ordersArr[i])
     }
+    else{
+    tr[i + 1].remove()
+    }
+ }
+
+ window.localStorage.setItem('Orders', JSON.stringify(afterRemoveItemArr))
+ 
+ }
 
 function dashboardUserData(){
   document.querySelector('.rs2-second-line').style.display = 'block';

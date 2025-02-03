@@ -33,13 +33,13 @@ button{
     color: rgb(37, 37, 37);
 }
 .container{
-    width: 470px;
-    margin: 50px  auto;
+    width: 450px;
+    margin: 25px  auto;
     background-color: #fff;
-    box-shadow: 0px 0px 3px grey;
+    box-shadow: 0px 0px 2px rgb(93, 92, 92);
     border-radius: 8px;
-   padding-block: 30px;
-   padding-inline: 20px;
+    padding-block: 30px;
+    padding-inline: 20px;
 }
 
 .first-heading h1{

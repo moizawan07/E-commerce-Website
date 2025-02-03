@@ -255,6 +255,15 @@ tr button{
     top: 75px;
     left: 8px;
 }
+.orderRemove{
+    &:hover{
+        color: #FF0000;
+    }
+    &:active{
+        transition: all 0.8s ease-in;
+        transform: translateY(-105px);
+    }
+}
 
 @media (max-width:500px){
     .mini-screen{
