@@ -509,6 +509,7 @@ function adtocardclose(e){
 }
 
 var addtocardArr = JSON.parse(window.localStorage.getItem('addtoCardArr')) || [];
+
 function Addtocardclicked(e){
   var getCurrentUserObjINLs = JSON.parse(window.localStorage.getItem('currentUserObj'));
   var getData = window.localStorage.getItem("dataarr");
@@ -550,6 +551,18 @@ function Addtocardclicked(e){
       // document.querySelector('.main-container').style.opacity = 1;
      document.querySelector('.background-blur').style.display = 'none'     // Background blur OFF krwa rha
 
+//    User Item Counter On Top Icon
+
+let itemCount = document.querySelector('.itemCounter p')
+    itemCount.classList.add('show')
+ let num =  Number(itemCount.innerText)
+   itemCount.innerText = ++num
+
+    // itemCount.innerText = parseInt(itemCount) + 1
+    // console.log(itemCount);
+    
+
+
       // alert('Add to Card Sucessful');
       Swal.fire({
         title: "Yahoo..!",
@@ -557,6 +570,14 @@ function Addtocardclicked(e){
         icon: "success"
       });
 
+}
+
+function userCardItems(){
+  let itemCount = document.querySelector('.itemCounter p')
+    itemCount.classList.remove('show')
+    itemCount.innerText = ''
+    // console.log(itemCount);
+  window.location.href = './card.html'
 }
 
 
