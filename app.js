@@ -1,3 +1,4 @@
+var addtocardArr = JSON.parse(window.localStorage.getItem("addtoCardArr")) || [];
 var dataArr = JSON.parse(window.localStorage.getItem("dataarr")) || [
   // agr  dataarr ma abhi tk user nhi aaya to sb se phla admin aajai ga
   {
@@ -112,7 +113,7 @@ function logIn() {
   var password2 = document.getElementById("password2").value;
   var getdatals = JSON.parse(window.localStorage.getItem("dataarr"));
   // console.log(getdatals);
-  var home = false;
+  var home = true;
 
   if (!email2 || !password2) {
     /// Check user ne input fields fill kii ya Nhii
@@ -121,10 +122,11 @@ function logIn() {
       text: "Fill out the field",
       icon: "error",
     });
-  } else {
+  }
+   else {
     // agr kr liii to continuee
-
-    if (getdatals.length < 2) {
+    
+    if ((email2 != getdatals[0].Email && password2 != getdatals[0].password) && getdatals.length < 2) {
       //   <------   Check user ne signUp kiya ya NHI ----->
       Swal.fire({
         /// Sweet Alert
@@ -146,32 +148,56 @@ function logIn() {
           title: "Congrats!",
           text: "Welcome to the Dashboard",
           icon: "success",
-        }).then(window.location.href = '../Dashboard/dashboard.html');
+        }).then(() => {
+          window.localStorage.setItem('currentUser', JSON.stringify(getdatals[0]))
+          window.location.href = '../Dashboard/dashboard.html'
+        });
       } else {
         // agr dosre user kr rhe to yh
 
         for (var i = 1; i < getdatals.length; i++) {
-          /// loop ka through email and pass check kr rha samw ha ya nhi
-
+          console.log(email2,password2);
+          console.log(getdatals[i].Email, getdatals[i].password);
+          
+          
           if (
             getdatals[i].Email === email2 &&
             getdatals[i].password === password2
           ) {
-            home = true; // agr same ha to true break  and resturn with true
+            Swal.fire({
+              title: "Congrats!",
+              text: "Welcome to the Home page",
+              icon: "success",
+            }).then((result) => {
+              console.log(result);
+              
+              if (result.isConfirmed) {
+                console.log(result.isConfirmed);
+                
+                window.localStorage.setItem("currentUser", JSON.stringify(getdatals[i]));
+                window.location.href = "../Home pages/home.html";
+              }
+            });
+            home = true;
             break;
-          } else {
-            home = false; // agr nhi samw  to continue and return false
+          }
+          else{
+             home = false
           }
         }
 
-        if (home) {
-          // ye condition jb chale gii jb user ki email and pass same hogii other wisee else chale ga
-          Swal.fire({
-            title: "Congrats!",
-            text: "Welcome to the Home page",
-            icon: "success",
-          }).then(() => (window.location.href = "../Home pages/home.html"));
-        } else {
+        // if (home) {
+        //   // ye condition jb chale gii jb user ki email and pass same hogii other wisee else chale ga
+        //   Swal.fire({
+        //     title: "Congrats!",
+        //     text: "Welcome to the Home page",
+        //     icon: "success",
+        //   }).then(() => {
+        //     window.location.href = "../Home pages/home.html"
+        //     window.localStorage.setItem('currentUser', JSON.stringify(getdatals[0])) 
+        //     });
+        // } 
+        if(!home) {
           Swal.fire({
             title: "Error!",
             text: "Insert a Correct data",
@@ -577,8 +603,7 @@ function adtocardclose(e) {
   document.getElementById("updateProductPrice").style.display = "none"; // New Price Show
 }
 
-var addtocardArr =
-  JSON.parse(window.localStorage.getItem("addtoCardArr")) || [];
+// var addtocardArr = JSON.parse(window.localStorage.getItem("addtoCardArr")) || [];
 
 function Addtocardclicked(e) {
   var getCurrentUserObjINLs = JSON.parse(
@@ -815,7 +840,7 @@ function Purchase() {
 
 // Dashboard Start
 if (window.location.href.indexOf("dashboard") != -1) {
-  var UserData = JSON.parse(window.localStorage.getItem("dataarr"));
+  var UserData =  JSON.parse(window.localStorage.getItem("dataarr"));
   var table = document.getElementById("table");
   for (var i = 0; i < UserData.length; i++) {
     table.innerHTML += `
@@ -828,7 +853,7 @@ if (window.location.href.indexOf("dashboard") != -1) {
         `;
   }
 
-  var getOrders = JSON.parse(window.localStorage.getItem("Orders"));
+  var getOrders = JSON.parse(window.localStorage.getItem("Orders")) || '';  // agr user na abhi tk kuch purchase nhi kiya too
   var table = document.getElementById("Order-table");
 
   for (var i = 0; i < getOrders.length; i++) {
@@ -884,27 +909,12 @@ function orderRemove(e) {
 function dashboardUserData() {
   document.querySelector(".rs2-second-line").style.display = "block";
   document.querySelector(".right-section3").style.display = "none";
-  document.getElementById("msg").innerHTML = "Users List";
-
-  // var UserData = JSON.parse(window.localStorage.getItem('dataarr'))
-  //     var table = document.getElementById('table');
-  //    for(var i = 0; i<UserData.length; i++){
-  //       table.innerHTML += `
-  //         <tr>
-  //           <td class = 'sno'> ${i + 1} </td>
-  //           <td class = 'name'> ${UserData[i].namee} </td>
-  //           <td class = 'email'> ${UserData[i].Email} </td>
-  //           <td> <button onclick = 'DeleteUser(this)'> Delete </button> </td>
-  //         </tr>
-  //       `
-  //    }
 }
 
 function orderDashboard() {
   document.querySelector(".rs2-second-line").style.display = "none";
   document.querySelector(".right-section3").style.display = "block";
 }
-
 function dashboardSidebar() {
   var con = document.querySelector(".left-main-con");
   var con2 = document.querySelector(".right-main-con");
@@ -917,29 +927,55 @@ function dashboardSidebar() {
     con2.style.width = "90%";
   }
 }
-function filterDashboard() {
-  var inputValue = document.getElementById("Serching");
-  var s2 = document.querySelector(".rs2-second-line");
-  var s3 = document.querySelector(".right-section3");
-  var tableSearching;
 
-  if (window.getComputedStyle(s2).display == "block") {
-    tableSearching = document.getElementById("table");
-  } else {
-    tableSearching = document.getElementById("Order-table");
+//  Filter user and Orders List by 
+
+function filterUserOrders() {
+
+  var inputValue = document.getElementById("Serching").value.replace(/\s/g, "");
+  var table1 = document.querySelector(".rs2-second-line");
+  var table2 = document.querySelector(".right-section3");
+  var tableSearchingUl;
+
+    //   yh condition se pta lga rha ma ka ka abhi userlist table dekh rha ya ma order table ma
+ 
+  if(window.getComputedStyle(table1).display === 'block'){
+    tableSearchingUl = document.getElementById('table')
   }
-  console.log(tableSearching);
-}
+  else{
+    tableSearchingUl = document.getElementById('Order-table')
+  }
 
+  let trs = tableSearchingUl.getElementsByTagName("tr")
+ 
+    for(var i = 1; i<trs.length ; i++){
+     
+      let td = trs[i].getElementsByTagName('td')[1].innerText.toLowerCase()
+     
+      console.log(td.indexOf(inputValue.toLowerCase()));
+      
 
-let lightIcon = document.querySelector(".lighticon")
-function dasTheme(){
-alert()
+      if(td.indexOf(inputValue.toLowerCase()) != -1){
+        trs[i].style.display = ''
+      }
+      else{
+        trs[i].style.display = 'none'
+      }
+      
+      
+    }
   
-  let header = document.querySelector('#dash_header')
-  console.log(header);
-  console.log(lightIcon.getAttribute('class')); 
+  
+ 
+  
+ 
 }
-console.log(lightIcon);
 
-lightIcon.addEventListener('click', dasTheme)
+function themeChanged(){
+ let themeIcon = document.querySelector('#theme_icon');
+ themeIcon.className = 'fa-solid fa-moon'
+ let header = document.querySelector('#dash_header')
+     header.style.backgroundColor = 'White'
+}
+
+

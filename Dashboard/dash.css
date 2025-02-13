@@ -58,6 +58,7 @@
 .settings i{
     color: grey;
     margin-right: 15px;
+    cursor: pointer;
 }
 #down{
     position: absolute;
