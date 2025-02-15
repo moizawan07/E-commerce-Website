@@ -10,6 +10,9 @@
     list-style: none;
     text-decoration: none;
 }
+body{
+    background-color: black;
+}
 .header{
     width: 100%;
     background-color: #212121;
@@ -90,10 +93,12 @@
     background-color: #333333;
 }
 .right-main-con{
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    /* background-color: black; */
     padding-top: 30px;
     padding-inline: 3px;
     width: 82%;
+    /* min-height: 100vh; */
 }
 .first-haid {
     padding-left: 5%;
@@ -156,6 +161,10 @@ li .text{
     justify-content: space-between;
     color: white;
     height: 125px;
+    transition: transform 0.5s ease-in-out, box-shadow 0.1s;
+    &:hover{
+        transform: translateY(-8px);
+    }
 }
 .right-first-header-card1 h1{
     font-weight: bold;
@@ -167,10 +176,10 @@ li .text{
 .right-first-header-card1 i{
     font-size: 70px;
 }
-#rcard1{background-color: red;}
-#rcard2{background-color: #FFC400;}
-#rcard3{background-color: #00D247;}
-#rcard4{background-color: #2669FF;}
+#rcard1{background-color: red;     box-shadow: 0px 4px 3px red,    0px -4px 3px red}
+#rcard2{background-color: #FFC400; box-shadow: 0px 4px 3px #FFC400, 0px -4px 3px #FFC400}
+#rcard3{background-color: #00D247; box-shadow: 0px 4px 3px #00D247, 0px -4px 3px #00D247}
+#rcard4{background-color: #2669FF; box-shadow: 0px 4px 3px #2669FF, 0px -4px 3px #2669FF}
 #rcard2 h3,#rcard4 h3{
     margin-left: 0px;
     font-size: 17px;
@@ -184,9 +193,11 @@ li .text{
     width: 97%;
     margin: 30px auto;
    padding-inline: 5px;
-    background-color: white;
+    /* background-color: white; */
+    background-color: #333333;
     padding-bottom: 20px;
     border-radius: 5px;
+    color: white;
 }
 .rs2-first-line{
     display: flex;
@@ -200,31 +211,62 @@ li .text{
 .rs2-first-line button{
     width: 60px;
     height: 25px;
-    border: 1px solid grey;
+    border:none;
     margin-left: 5px;
     border-radius: 3px;
+    backdrop-filter: blur(100px);
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        background: rgb(224, 223, 223);
+        border: 1px dotted white;
+        transform: scale(1.15);
+    }
 }
 #ad{
    color: white;
    border: none;
-   background-color: #3c70e1;
+   background-color: #0852f0;
 }
+
+/* .rs2-second-line{
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+} */
+
 table{
-    width: 95%;
-    border: 1px solid green;
+    width: 97%;
+    border: 2px solid green;
     margin: 30px 20px;
     text-align: center;
+    width: 95%;
     border-collapse: collapse;
+    border-radius: 3px;
+    overflow: hidden;
+    color: white;
+    background-color: rgb(21, 21, 21);
+    padding: 10px;
+    /* border-color: #21addb; */
 }
 th{
-    font-weight: 600;
+    font-weight: 200;
+    color: whitesmoke;
+    font-size: 18px;
+    padding: 10px;
 }
 td{
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 200;
+    padding: 5px;
+    color: white;
 }
 tr{
     border: 1px solid green;
+    border:  1px double rgb(243, 97, 44);
+    border-color: #04a7dd;
     line-height: 40px;
 }
 tr button{
@@ -235,8 +277,17 @@ tr button{
     border: none;
     border-radius: 3px;
 }
+
+table tr td img{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    position: relative;
+    top: 7px;
+}
 .sno{
     color: #4239E5;
+    color: #3cc0eb;
 }
 #ordeli,#firsli{
     cursor: pointer;
@@ -347,4 +398,20 @@ tr button{
         padding-block: 3px;
         font-size: 11px;
     }
+}
+.edit{
+    transition: all 0.5s ease-in;
+    &:hover{
+        color: #05b13f;
+    }
+}
+.delete{
+    transition:   0.5s ease-in;
+    &:hover{
+        color: crimson;
+    }
+}
+.edit:active,.delete:active{
+    font-size: 55px !important;
+  transform: translateY(-5px);
 }

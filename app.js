@@ -112,7 +112,7 @@ function logIn() {
   var email2 = document.getElementById("email2").value;
   var password2 = document.getElementById("password2").value;
   var getdatals = JSON.parse(window.localStorage.getItem("dataarr"));
-  // console.log(getdatals);
+  console.log(getdatals);
   var home = true;
 
   if (!email2 || !password2) {
@@ -848,7 +848,8 @@ if (window.location.href.indexOf("dashboard") != -1) {
             <td class = 'sno'> ${i + 1} </td>
             <td class = 'name'> ${UserData[i].namee} </td>
             <td class = 'email'> ${UserData[i].Email} </td>
-            <td> <button onclick = 'DeleteUser(this)'> Delete </button> </td>
+            <td class='delete'><i  onclick = 'DeleteUser(this)' class="fa-solid fa-trash-can"></i> </td>
+            <td class='edit'> <i onclick='editUser(this)' class="fa-solid fa-pencil"></i> </td>
           </tr>
         `;
   }
@@ -859,6 +860,7 @@ if (window.location.href.indexOf("dashboard") != -1) {
   for (var i = 0; i < getOrders.length; i++) {
     table.innerHTML += `
       <tr> 
+        <td> <img src=${getOrders[i].imgLink} alt="Cardpic"> </td>
         <td> ${getOrders[i].id} </td>
         <td> ${getOrders[i].ProName} </td>
         <td> ${getOrders[i].ProPrice} </td>
@@ -887,13 +889,56 @@ function DeleteUser(e) {
   }
 }
 
+function editUser(e){
+  let usersArr = JSON.parse(window.localStorage.getItem('dataarr'))
+ let nameHtml = document.querySelectorAll('.name');
+ let emailHtml = document.querySelectorAll('.email');
+
+  let userOldInfo = {
+    name : e.parentNode.parentNode.childNodes[3].innerText,
+    email : e.parentNode.parentNode.childNodes[5].innerText,
+  }
+
+  let newUserInfo = {
+    name : prompt('Update a name..?',userOldInfo.name),
+    email : prompt('Update a email..?',userOldInfo.email)
+  }
+
+  if(newUserInfo.name && newUserInfo.email){
+
+  usersArr.forEach((item) => {            /// This loop Changed The update the object of an array
+    if(item.namee === userOldInfo.name){
+       item.namee = newUserInfo.name
+       item.Email = newUserInfo.email
+    }
+  })
+
+   nameHtml.forEach((namee) => {         /// This loop Changed also user name value in html
+      if(namee.innerText === userOldInfo.name){
+       namee.innerText = newUserInfo.name
+      }
+   })
+   emailHtml.forEach((email) => {           /// This loop Changed also user email value in html
+      if(email.innerText === userOldInfo.email){
+       email.innerText = newUserInfo.email
+      }
+   })
+
+}else{
+  alert(' Emptyyy Value cant Edit \n Enter a Value....')
+}
+ 
+window.localStorage.setItem('dataarr', JSON.stringify(usersArr)) 
+
+}
+
 function orderRemove(e) {
   let table = document.getElementById("Order-table");
   let tr = table.getElementsByTagName("tr");
 
   let ordersArr = JSON.parse(window.localStorage.getItem("Orders"));
-  let removeId = e.parentNode.childNodes[1].innerText;
-
+  let removeId = e.parentNode.childNodes[3].innerText;
+  
   let afterRemoveItemArr = [];
   for (let i = 0; i < ordersArr.length; i++) {
     if (ordersArr[i].id != removeId) {
@@ -970,6 +1015,7 @@ function filterUserOrders() {
   
  
 }
+
 
 function themeChanged(){
  let themeIcon = document.querySelector('#theme_icon');
